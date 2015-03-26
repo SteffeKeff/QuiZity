@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuiZity</string>
+    <string name="action_settings">Settings</string>
+    <string name="play">Start game</string>
+    <string name="highscore">Highscore</string>
+    <string name="howTo">How to</string>
+    <string name="settings">Settings</string>
+    <string name="enterName">name</string>
+    <string name="start">Start</string>
+    <string name="startGame">Start game</string>
+    <string name="errorNoName">Please enter your name</string>
+
+</resources>

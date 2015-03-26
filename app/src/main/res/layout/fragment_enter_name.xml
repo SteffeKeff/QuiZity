@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/enterNameFragment">
+
+    <EditText
+        android:id="@+id/name"
+        android:inputType="text"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enterName"
+        android:singleLine="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="254dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/startGame"
+        android:id="@+id/startButton"
+        android:layout_marginLeft="167dp"
+        android:layout_marginStart="167dp"
+        android:layout_alignBottom="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="startGame"
+        android:imeOptions="actionDone"
+        />
+
+</RelativeLayout>
