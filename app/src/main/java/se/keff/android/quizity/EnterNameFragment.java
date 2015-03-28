@@ -61,23 +61,4 @@ public final class EnterNameFragment extends DialogFragment {
 
         });
     }
-
-
-//    @Override
-//    public Dialog onCreateDialog(Bundle savedInstanceState) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//
-//        LayoutInflater inflater = getActivity().getLayoutInflater();
-//
-//        builder.setView(inflater.inflate(R.layout.fragment_enter_name, null))
-//                .setPositiveButton(R.string.start, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        TextView name = (TextView) rootView.findViewById(R.id.name);
-//                        Toast.makeText(getActivity(), name.getText().toString(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//        return builder.create();
-//    }
 }

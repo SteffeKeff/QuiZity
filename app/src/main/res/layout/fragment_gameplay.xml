@@ -5,6 +5,7 @@
 
     <TextView
         android:id="@+id/cityName"
+        android:text="@string/placeHolderCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,6 +18,7 @@
     <ImageButton
         android:id="@+id/imageButton1"
         android:layout_width="175dp"
+        android:maxHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -28,6 +30,7 @@
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="175dp"
+        android:maxHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -39,6 +42,7 @@
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="175dp"
+        android:maxHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -50,6 +54,7 @@
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="175dp"
+        android:maxHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -62,7 +67,7 @@
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageButton4"
+        android:layout_below="@id/cityName"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
