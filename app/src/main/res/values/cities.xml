@@ -9,4 +9,12 @@
         <item>Oslo</item>
     </string-array>
 
+    <string-array name="citiesUrl">
+        <item>StockholmURL</item>
+        <item>MalmöURL</item>
+        <item>LondonURL</item>
+        <item>GöteborgURL</item>
+        <item>OsloURL</item>
+    </string-array>
+
 </resources>
