@@ -3,18 +3,18 @@
 
     <string-array name="cities">
         <item>Stockholm</item>
-        <item>Malmö</item>
+        <item>Malmo</item>
         <item>London</item>
-        <item>Göteborg</item>
+        <item>Gothenburg</item>
         <item>Oslo</item>
     </string-array>
 
-    <string-array name="citiesUrl">
-        <item>StockholmURL</item>
-        <item>MalmöURL</item>
-        <item>LondonURL</item>
-        <item>GöteborgURL</item>
-        <item>OsloURL</item>
+    <string-array name="citiesImageNumber">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
     </string-array>
 
 </resources>

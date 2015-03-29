@@ -43,12 +43,11 @@ public class DownloadURLTask extends AsyncTask<String, Void, String> {
             }
 
             JsonParser parser = new JsonParser();
-            Object obj = parser.parse(result.toString());
-            JsonObject jsonObject = (JsonObject) obj;
+            Object resultObject = parser.parse(result.toString());
+            JsonObject jsonObject = (JsonObject) resultObject;
             JsonArray array = (JsonArray) jsonObject.getAsJsonObject("responseData").getAsJsonArray("results");
             //Om man vill välja vilket nummer av bilden, t.ex. nr1(0) lr nr2(1)
-            //JsonObject object = (JsonObject) array.get(Integer.parseInt(params[1]));
-            JsonObject object = (JsonObject) array.get(0);
+            JsonObject object = (JsonObject) array.get(Integer.parseInt(params[1]));
             result.delete(0, result.capacity());
             result.append(object.get("url").toString());
 

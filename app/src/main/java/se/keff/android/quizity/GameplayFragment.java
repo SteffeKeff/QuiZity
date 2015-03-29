@@ -26,10 +26,10 @@ import java.util.List;
 
 public final class GameplayFragment extends Fragment {
 
-    public static final String sUrl1 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=oslo";
-    public static final String sUrl2 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=stockholm";
-    public static final String sUrl3 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=london";
-    public static final String sUrl4 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=gothenburg";
+//    public static final String sUrl1 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=oslo";
+//    public static final String sUrl2 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=stockholm";
+//    public static final String sUrl3 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=london";
+//    public static final String sUrl4 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=gothenburg";
 
     public GameplayFragment() {
     }
@@ -47,17 +47,9 @@ public final class GameplayFragment extends Fragment {
         int randomCity = (int) ((Math.random() * 5));
         String theCity = theCities.get(randomCity);
         cityName.setText(theCity);
+
+        new Game().startDownload(rootView);
         //theCities.remove(randomCity);
-
-        ImageButton button1 = (ImageButton) rootView.findViewById(R.id.imageButton1);
-        ImageButton button2 = (ImageButton) rootView.findViewById(R.id.imageButton2);
-        ImageButton button3 = (ImageButton) rootView.findViewById(R.id.imageButton3);
-        ImageButton button4 = (ImageButton) rootView.findViewById(R.id.imageButton4);
-
-        new DownloadURLTask(button1).execute(sUrl1,"1");
-        new DownloadURLTask(button2).execute(sUrl2,"1");
-        new DownloadURLTask(button3).execute(sUrl3,"0");
-        new DownloadURLTask(button4).execute(sUrl4,"1");
 
         Chronometer timer = (Chronometer) rootView.findViewById(R.id.timer);
         timer.start();
