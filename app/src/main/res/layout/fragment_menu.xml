@@ -6,56 +6,63 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MenuActivity$MenuFragment">
+    tools:context=".MenuActivity$MenuFragment"
+    android:background="#ffc1ffbe"
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/app_name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="50dp" />
+    >
+
 
     <ImageView
         android:id="@+id/startMenuImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/london" />
+        android:src="@drawable/earth"
+        android:layout_marginTop="-10dp"/>
+
 
     <Button
         android:id="@+id/buttonSettings"
-        android:layout_width="wrap_content"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/startMenuImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="@string/settings" />
+        android:layout_marginTop="-5dp"
+        android:onClick="animButton2"
+        android:text="@string/settings"
+        android:background="#998B73"
+        android:layout_marginBottom="5dp"/>
 
     <Button
         android:id="@+id/buttonHowTo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="500dp"
+        android:layout_height="50dp"
         android:layout_below="@id/buttonSettings"
         android:layout_centerHorizontal="true"
-        android:text="@string/howTo" />
+        android:background="#998B73"
+        android:onClick="animButton3"
+        android:text="@string/howTo"
+        android:layout_marginBottom="5dp"
+        />
 
     <Button
         android:id="@+id/buttonHighscore"
-        android:layout_width="wrap_content"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonHowTo"
         android:layout_centerHorizontal="true"
-        android:text="@string/highscore" />
+        android:background="#998B73"
+        android:text="@string/highscore"
+        android:onClick="animButton"
+        android:layout_marginBottom="5dp"/>
 
     <Button
         android:id="@+id/buttonPlay"
-        android:layout_width="wrap_content"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonHighscore"
         android:layout_centerHorizontal="true"
+        android:background="#998B73"
         android:onClick="playGame"
         android:text="@string/play" />
 

@@ -3,12 +3,14 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/enterNameFragment">
+    android:id="@+id/enterNameFragment"
+    android:clickable="false"
+    android:background="#fff9ffdd">
 
     <EditText
         android:id="@+id/name"
         android:inputType="text"
-        android:layout_width="170dp"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:hint="@string/enterName"
         android:singleLine="true"
@@ -19,17 +21,13 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:text="@string/startGame"
         android:id="@+id/startButton"
-        android:layout_marginLeft="167dp"
-        android:layout_marginStart="167dp"
-        android:layout_alignBottom="@+id/name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:onClick="startGame"
         android:imeOptions="actionDone"
-        />
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
