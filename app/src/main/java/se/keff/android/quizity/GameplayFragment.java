@@ -47,8 +47,20 @@ public final class GameplayFragment extends Fragment {
     }
 
     public void buttonClicked(int buttonId){
+        int stoppedMilliseconds = 0;
         timer.stop();
-        Toast.makeText(getActivity(), String.valueOf(buttonId), Toast.LENGTH_SHORT).show();
+        String chronoText = timer.getText().toString();
+        String array[] = chronoText.split(":");
+        if (array.length == 2) {
+            stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 1000
+                    + Integer.parseInt(array[1]) * 1000;
+        } else if (array.length == 3) {
+            stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 60 * 1000
+                    + Integer.parseInt(array[1]) * 60 * 1000
+                    + Integer.parseInt(array[2]) * 1000;
+        }
+        Toast.makeText(getActivity(), String.valueOf(stoppedMilliseconds), Toast.LENGTH_SHORT).show();
+
     }
 
     View.OnClickListener listener1 = new View.OnClickListener(){
