@@ -1,44 +1,33 @@
 package se.keff.android.quizity;
 
 import android.app.Fragment;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.koushikdutta.async.future.FutureCallback;
-import com.koushikdutta.ion.Ion;
-import com.squareup.picasso.Picasso;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.List;
 
 public final class GameplayFragment extends Fragment {
 
-//    public static final String sUrl1 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=oslo";
-//    public static final String sUrl2 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=stockholm";
-//    public static final String sUrl3 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=london";
-//    public static final String sUrl4 = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=gothenburg";
-
-    public GameplayFragment() {
-    }
-
+    Game game = new Game();
+    Chronometer timer;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         final View rootView = inflater.inflate(R.layout.fragment_gameplay, container, false);
-
+        ImageButton button = (ImageButton) rootView.findViewById(R.id.imageButton1);
+        button.setOnClickListener(listener1);
+        button = (ImageButton) rootView.findViewById(R.id.imageButton2);
+        button.setOnClickListener(listener2);
+        button = (ImageButton) rootView.findViewById(R.id.imageButton3);
+        button.setOnClickListener(listener3);
+        button = (ImageButton) rootView.findViewById(R.id.imageButton4);
+        button.setOnClickListener(listener4);
         TextView cityName = (TextView) rootView.findViewById(R.id.cityName);
 
         String cities[] = getResources().getStringArray(R.array.cities);
@@ -48,13 +37,43 @@ public final class GameplayFragment extends Fragment {
         String theCity = theCities.get(randomCity);
         cityName.setText(theCity);
 
-        new Game().startDownload(rootView);
+        game.getImages(rootView);
         //theCities.remove(randomCity);
 
-        Chronometer timer = (Chronometer) rootView.findViewById(R.id.timer);
+        timer = (Chronometer) rootView.findViewById(R.id.timer);
         timer.start();
 
         return rootView;
     }
+
+    public void buttonClicked(int buttonId){
+        timer.stop();
+        Toast.makeText(getActivity(), String.valueOf(buttonId), Toast.LENGTH_SHORT).show();
+    }
+
+    View.OnClickListener listener1 = new View.OnClickListener(){
+        public void onClick(View v){
+            buttonClicked(1);
+        }
+    };
+
+    View.OnClickListener listener2 = new View.OnClickListener(){
+        public void onClick(View v){
+            buttonClicked(2);
+        }
+    };
+
+    View.OnClickListener listener3 = new View.OnClickListener(){
+        public void onClick(View v){
+            buttonClicked(3);
+        }
+    };
+
+    View.OnClickListener listener4 = new View.OnClickListener(){
+        public void onClick(View v){
+            buttonClicked(4);
+        }
+    };
+
 }
 

@@ -18,9 +18,7 @@ import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
-/**
- * Created by Steffe on 15-03-26.
- */
+
 public final class EnterNameFragment extends DialogFragment {
 
     View rootView;

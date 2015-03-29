@@ -10,5 +10,6 @@
     <string name="startGame">Start game</string>
     <string name="errorNoName">Please enter your name</string>
     <string name="placeHolderCity">no city</string>
+    <string name="gamePlay">gameplay</string>
 
 </resources>

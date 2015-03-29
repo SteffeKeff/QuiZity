@@ -12,8 +12,10 @@ public final class Game {
 
     private static String url = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=";
     private static StringBuilder builder = new StringBuilder(url);
+    public int score;
+    public int totalTime;
 
-    public void startDownload(View rootView){
+    public void getImages(View rootView){
 
         String[] cities = rootView.getResources().getStringArray(R.array.cities);
         String[] citiesImageNumber = rootView.getResources().getStringArray(R.array.citiesImageNumber);
@@ -41,6 +43,5 @@ public final class Game {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
     }
 }
