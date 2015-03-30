@@ -24,6 +24,7 @@ public final class Game
 
     private int cities_size;
     private int round = 0;
+    private int randomDisplayCity;
     private int randomCity;
     public static int score;
     public static int totalTime;
@@ -49,7 +50,7 @@ public final class Game
         ImageButton button3 = (ImageButton) rootView.findViewById(R.id.imageButton3);
         ImageButton button4 = (ImageButton) rootView.findViewById(R.id.imageButton4);
 
-        randomCity = (int) ((Math.random() * displayCities.size()));
+        randomDisplayCity = (int) ((Math.random() * displayCities.size()));
         try
         {
             loadImage(button1);
@@ -100,48 +101,38 @@ public final class Game
     {
         round++;
         TextView displayRound = (TextView) rootView.findViewById(R.id.round);
-        displayRound.setText(displayRound.getResources().getString(R.string.round) + String.valueOf(round) + "/" + (cities_size/4));
+        TextView displayCityName = (TextView) rootView.findViewById(R.id.cityName);
 
         //ArrayList<String> displayCities = new ArrayList<>();
         //ArrayList<String> displayCitiesIndexNumbers = new ArrayList<>();
 
-        int randomCity = (int) ((Math.random() * cities.size()));
-        displayCities.add(cities.get(randomCity));
-        displayCitiesIndexNumbers.add(citiesIndexNumbers.get(randomCity));
-        TextView displayCityName = (TextView) rootView.findViewById(R.id.cityName);
-        displayCityName.setText(displayCities.get(0));
+        pickCity();
+        pickCity();
+        pickCity();
+        pickCity();
         correctCity = displayCities.get(0);
-        cities.remove(randomCity);
-        citiesIndexNumbers.remove(randomCity);
 
-        randomCity = (int) ((Math.random() * cities.size()));
-        displayCities.add(cities.get(randomCity));
-        displayCitiesIndexNumbers.add(citiesIndexNumbers.get(randomCity));
-        cities.remove(randomCity);
-        citiesIndexNumbers.remove(randomCity);
-
-        randomCity = (int) ((Math.random() * cities.size()));
-        displayCities.add(cities.get(randomCity));
-        displayCitiesIndexNumbers.add(citiesIndexNumbers.get(randomCity));
-        cities.remove(randomCity);
-        citiesIndexNumbers.remove(randomCity);
-
-        randomCity = (int) ((Math.random() * cities.size()));
-        displayCities.add(cities.get(randomCity));
-        displayCitiesIndexNumbers.add(citiesIndexNumbers.get(randomCity));
-        cities.remove(randomCity);
-        citiesIndexNumbers.remove(randomCity);
+        displayCityName.setText(correctCity);
+        displayRound.setText(displayRound.getResources().getString(R.string.round) + String.valueOf(round) + "/" + (cities_size/4));
 
         getImages();
     }
 
     public void loadImage(ImageButton button) throws ExecutionException, InterruptedException {
-        randomCity = (int) ((Math.random() * displayCities.size()));
-        builder.append(displayCities.get(randomCity));
-        new DownloadURLTask(button).execute(builder.toString(), displayCitiesIndexNumbers.get(randomCity)).get();
-        button.setTag(displayCities.get(randomCity));
+        randomDisplayCity = (int) ((Math.random() * displayCities.size()));
+        builder.append(displayCities.get(randomDisplayCity));
+        new DownloadURLTask(button).execute(builder.toString(), displayCitiesIndexNumbers.get(randomDisplayCity)).get();
+        button.setTag(displayCities.get(randomDisplayCity));
         builder.replace(0, builder.capacity(), URL);
-        displayCities.remove(randomCity);
-        displayCitiesIndexNumbers.remove(randomCity);
+        displayCities.remove(randomDisplayCity);
+        displayCitiesIndexNumbers.remove(randomDisplayCity);
+    }
+
+    public void pickCity(){
+        randomCity = (int) ((Math.random() * cities.size()));
+        displayCities.add(cities.get(randomCity));
+        displayCitiesIndexNumbers.add(citiesIndexNumbers.get(randomCity));
+        cities.remove(randomCity);
+        citiesIndexNumbers.remove(randomCity);
     }
 }
