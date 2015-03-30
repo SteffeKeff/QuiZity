@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/name"
-        android:inputType="text"
+        android:inputType="textCapSentences"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enterName"
