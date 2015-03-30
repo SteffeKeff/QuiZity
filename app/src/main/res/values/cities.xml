@@ -2,25 +2,25 @@
 <resources>
 
     <string-array name="cities">
-        <item>Stockholm</item>
-        <item>Malmo</item>
-        <item>London</item>
-        <item>Gothenburg</item>
+        <item>stockholm</item>
+        <item>malmo</item>
+        <item>london</item>
+        <item>gothenburg</item>
 
-        <item>Oslo</item>
-        <item>Paris</item>
-        <item>Moscow</item>
-        <item>Rome</item>
+        <item>oslo</item>
+        <item>paris</item>
+        <item>moscow</item>
+        <item>rome</item>
     </string-array>
 
     <string-array name="citiesImageNumber">
-        <item>3</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>1</item>
 
+        <item>2</item>
         <item>0</item>
-        <item>1</item>
         <item>0</item>
         <item>0</item>
     </string-array>

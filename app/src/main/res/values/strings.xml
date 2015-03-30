@@ -11,5 +11,8 @@
     <string name="errorNoName">Please enter your name</string>
     <string name="placeHolderCity">no city</string>
     <string name="gamePlay">gameplay</string>
+    <string name="round">Round: </string>
+    <string name="score">Score: 0</string>
+    <string name="total_time">Total time: 0</string>
 
 </resources>
