@@ -19,8 +19,12 @@ public final class Game
     private StringBuilder builder = new StringBuilder(URL);
     private final ArrayList<String> cities;
     private final ArrayList<String> citiesIndexNumbers;
+    private final ArrayList<String> displayCities;
+    private final ArrayList<String> displayCitiesIndexNumbers;
+
     private int cities_size;
     private int round = 0;
+    private int randomCity;
     public static int score;
     public static int totalTime;
     private String correctCity;
@@ -32,50 +36,26 @@ public final class Game
         String[] citiesImageNumbersArray = rootView.getResources().getStringArray(R.array.citiesImageNumber);
         cities = new ArrayList(Arrays.asList(citiesArray));
         citiesIndexNumbers = new ArrayList(Arrays.asList(citiesImageNumbersArray));
+        displayCities = new ArrayList<>();
+        displayCitiesIndexNumbers = new ArrayList<>();
+
         cities_size = cities.size();
     }
 
-    public void getImages(ArrayList<String> displayCities, ArrayList<String> displayCitiesImageNumbers)
+    public void getImages()
     {
         ImageButton button1 = (ImageButton) rootView.findViewById(R.id.imageButton1);
         ImageButton button2 = (ImageButton) rootView.findViewById(R.id.imageButton2);
         ImageButton button3 = (ImageButton) rootView.findViewById(R.id.imageButton3);
         ImageButton button4 = (ImageButton) rootView.findViewById(R.id.imageButton4);
 
-        int randomCity = (int) ((Math.random() * displayCities.size()));
-
+        randomCity = (int) ((Math.random() * displayCities.size()));
         try
         {
-            builder.append(displayCities.get(randomCity));
-            new DownloadURLTask(button1).execute(builder.toString(), displayCitiesImageNumbers.get(randomCity)).get();
-            button1.setTag(displayCities.get(randomCity));
-            builder.replace(0, builder.capacity(), URL);
-            displayCities.remove(randomCity);
-            displayCitiesImageNumbers.remove(randomCity);
-
-            randomCity = (int) ((Math.random() * displayCities.size()));
-            builder.append(displayCities.get(randomCity));
-            new DownloadURLTask(button2).execute(builder.toString(), displayCitiesImageNumbers.get(randomCity)).get();
-            button2.setTag(displayCities.get(randomCity));
-            builder.replace(0, builder.capacity(), URL);
-            displayCities.remove(randomCity);
-            displayCitiesImageNumbers.remove(randomCity);
-
-            randomCity = (int) ((Math.random() * displayCities.size()));
-            builder.append(displayCities.get(randomCity));
-            new DownloadURLTask(button3).execute(builder.toString(), displayCitiesImageNumbers.get(randomCity)).get();
-            button3.setTag(displayCities.get(randomCity));
-            builder.replace(0, builder.capacity(), URL);
-            displayCities.remove(randomCity);
-            displayCitiesImageNumbers.remove(randomCity);
-
-            randomCity = (int) ((Math.random() * displayCities.size()));
-            builder.append(displayCities.get(randomCity));
-            new DownloadURLTask(button4).execute(builder.toString(), displayCitiesImageNumbers.get(randomCity)).get();
-            button4.setTag(displayCities.get(randomCity));
-            builder.replace(0, builder.capacity(), URL);
-            displayCities.remove(randomCity);
-            displayCitiesImageNumbers.remove(randomCity);
+            loadImage(button1);
+            loadImage(button2);
+            loadImage(button3);
+            loadImage(button4);
         } catch (InterruptedException e)
         {
             e.printStackTrace();
@@ -122,8 +102,8 @@ public final class Game
         TextView displayRound = (TextView) rootView.findViewById(R.id.round);
         displayRound.setText(displayRound.getResources().getString(R.string.round) + String.valueOf(round) + "/" + (cities_size/4));
 
-        ArrayList<String> displayCities = new ArrayList<>();
-        ArrayList<String> displayCitiesIndexNumbers = new ArrayList<>();
+        //ArrayList<String> displayCities = new ArrayList<>();
+        //ArrayList<String> displayCitiesIndexNumbers = new ArrayList<>();
 
         int randomCity = (int) ((Math.random() * cities.size()));
         displayCities.add(cities.get(randomCity));
@@ -152,6 +132,16 @@ public final class Game
         cities.remove(randomCity);
         citiesIndexNumbers.remove(randomCity);
 
-        getImages(displayCities, displayCitiesIndexNumbers);
+        getImages();
+    }
+
+    public void loadImage(ImageButton button) throws ExecutionException, InterruptedException {
+        randomCity = (int) ((Math.random() * displayCities.size()));
+        builder.append(displayCities.get(randomCity));
+        new DownloadURLTask(button).execute(builder.toString(), displayCitiesIndexNumbers.get(randomCity)).get();
+        button.setTag(displayCities.get(randomCity));
+        builder.replace(0, builder.capacity(), URL);
+        displayCities.remove(randomCity);
+        displayCitiesIndexNumbers.remove(randomCity);
     }
 }
