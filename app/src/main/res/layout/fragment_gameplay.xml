@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/cityName"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -18,39 +18,59 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="45dp"
         android:typeface="serif"/>
-
+<LinearLayout
+    android:layout_above="@+id/linearLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true"
+    android:id="@+id/linearLayout2"
+    >
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="175dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/imageButton2"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
+        android:layout_weight="1"
         android:adjustViewBounds="true"
         android:maxHeight="100dp"
+        android:maxWidth="200dp"
         android:src="@drawable/frame"
         android:background="#FFBB33"
         android:scaleType="fitXY"
-        android:layout_marginLeft="15dp"/>
+        android:layout_below="@+id/timer"/>
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="175dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:layout_weight="1"
         android:maxHeight="100dp"
+        android:maxWidth="200dp"
         android:src="@drawable/frame"
         android:background="#FFBB33"
         android:onClick="buttonAnswer"
         android:scaleType="fitXY"
         android:layout_alignTop="@+id/imageButton1"
-        android:layout_toRightOf="@+id/imageButton3"
-        android:layout_toEndOf="@+id/imageButton3"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+</LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/linearLayout"
+        >
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="175dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -59,26 +79,28 @@
         android:src="@drawable/frame"
         android:background="#FFBB33"
         android:maxHeight="100dp"
+        android:maxWidth="200dp"
         android:onClick="buttonAnswer"
         android:scaleType="fitXY"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="15dp"/>
+        android:layout_weight="1"
+        />
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="175dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageButton2"
         android:adjustViewBounds="true"
         android:maxHeight="100dp"
+        android:maxWidth="200dp"
         android:src="@drawable/frame"
         android:background="#FFBB33"
         android:onClick="buttonAnswer"
         android:scaleType="fitXY"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_weight="1"/>
+    </LinearLayout>
+
 
     <Chronometer
         android:id="@+id/timer"

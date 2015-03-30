@@ -62,13 +62,5 @@ public final class GameActivity extends ActionBarActivity{
         manager.hideSoftInputFromWindow(binder, 0);
     }
 
-    public void buttonAnswer(View view){
 
-        switch(view.getId()){
-            case R.id.imageButton1: Toast.makeText(this, "FEEEEl", Toast.LENGTH_LONG).show(); break;
-            case R.id.imageButton2: Toast.makeText(this, "RÄTT!!", Toast.LENGTH_LONG).show(); break;
-            case R.id.imageButton3: Toast.makeText(this, "FEEEEEL!", Toast.LENGTH_LONG).show(); break;
-            case R.id.imageButton4: Toast.makeText(this, "FEEEEL!", Toast.LENGTH_LONG).show(); break;
-        }
-    }
 }
