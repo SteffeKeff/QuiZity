@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">QuiZity</string>
-    <string name="enterName">namn</string>
+    <string name="enterName">Namn</string>
     <string name="errorNoName">Skriv in ditt namn</string>
     <string name="highscore">Topplistan</string>
     <string name="howTo">Hur fan gör man?</string>

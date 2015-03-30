@@ -1,6 +1,7 @@
 package se.keff.android.quizity.game;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -62,7 +63,12 @@ public final class Game {
     }
 
     public void nextRound(ImageButton buttonClicked, int stoppedMilliseconds) {
+        MediaPlayer media = MediaPlayer.create(rootView.getContext(),R.raw.correct);
+        MediaPlayer wrong = MediaPlayer.create(rootView.getContext(),R.raw.wrong);
         if (correctCity == buttonClicked.getTag()) {
+
+
+            media.start();
             TextView displayScore = (TextView) rootView.findViewById(R.id.score);
             TextView displayTime = (TextView) rootView.findViewById(R.id.total_time);
 
@@ -75,6 +81,8 @@ public final class Game {
 
             displayScore.setText(displayScore.getResources().getString(R.string.score).replace("0", "") + score);
             displayTime.setText(displayTime.getResources().getString(R.string.total_time).replace("0", "") + totalTime);
+        }else{
+            wrong.start();
         }
 
         if (!cities.isEmpty()) {

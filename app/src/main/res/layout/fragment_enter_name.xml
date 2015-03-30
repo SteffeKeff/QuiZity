@@ -1,38 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="500dp"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:id="@+id/enterNameFragment"
     android:clickable="false"
-    android:background="#fff9ffdd">
+    android:background="#FF4444">
 
 
     <EditText
         android:id="@+id/name"
         android:inputType="text"
-        android:layout_width="500dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enterName"
         android:singleLine="true"
-        android:layout_alignParentTop="true"
+        android:textSize="30dp"
+        android:maxLength="20"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="254dp" />
+        android:background="#E53D3D"
+        android:gravity="center"
+        />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="500dp"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
         android:text="@string/startGame"
         android:id="@+id/startButton"
         android:onClick="startGame"
         android:imeOptions="actionDone"
-        android:background="@drawable/frame"
+        android:textSize="35dp"
+        android:layout_gravity="center_horizontal"
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true"
-        />
+        android:background="#7F2222"
+        android:textStyle="bold"
+        android:textColor="#ffffff"/>
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp"/>
 
 
 </RelativeLayout>

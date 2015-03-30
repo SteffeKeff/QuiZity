@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffccfaff"
+    android:background="#FF4444"
     android:tag="@string/gamePlay">
 
     <TextView
@@ -28,7 +28,10 @@
         android:layout_centerVertical="true"
         android:adjustViewBounds="true"
         android:maxHeight="100dp"
-        android:scaleType="fitXY"/>
+        android:src="@drawable/frame"
+        android:background="#FFBB33"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="15dp"/>
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -39,8 +42,11 @@
         android:layout_centerVertical="true"
         android:adjustViewBounds="true"
         android:maxHeight="100dp"
+        android:src="@drawable/frame"
+        android:background="#FFBB33"
         android:onClick="buttonAnswer"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:layout_marginRight="15dp"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -50,9 +56,13 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageButton1"
         android:adjustViewBounds="true"
+        android:src="@drawable/frame"
+        android:background="#FFBB33"
         android:maxHeight="100dp"
         android:onClick="buttonAnswer"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="15dp"/>
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -63,8 +73,12 @@
         android:layout_below="@+id/imageButton2"
         android:adjustViewBounds="true"
         android:maxHeight="100dp"
+        android:src="@drawable/frame"
+        android:background="#FFBB33"
         android:onClick="buttonAnswer"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="15dp"/>
 
     <Chronometer
         android:id="@+id/timer"
