@@ -11,26 +11,30 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class HighscoreFragment extends Fragment {
+public final class HighscoreFragment extends Fragment {
 
     private ListView highscoreListView;
     ArrayList<String> highscore = new ArrayList<>();
-    TreeMap<Integer, String> savedData = new TreeMap<>();
+
+    HashMap<String, Integer> fetchedDataToHashMap = new HashMap<String, Integer>();
+    ValueComparator valueComparator = new ValueComparator(fetchedDataToHashMap);
+    TreeMap<String, Integer> fetchedDataSortedInTreeMap = new TreeMap<String, Integer>(valueComparator);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.highscore_layout, container, false);
 
-        if(!GameActivity.playerName.isEmpty()){
+        if (!GameActivity.playerName.isEmpty()) {
 
             SharedPreferences names = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = names.edit();
-            int totalScore = Game.score*10 - Game.totalTime;
+            int totalScore = Game.score * 10 - Game.totalTime;
 
             editor.putInt(GameActivity.playerName, totalScore);
 
@@ -41,30 +45,48 @@ public class HighscoreFragment extends Fragment {
             Game.totalTime = 0;
         }
 
-        SharedPreferences playerNames = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
+        SharedPreferences savedData = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
 
-        Map<String, ?> players = playerNames.getAll();
+        Map<String, ?> fetchedData = savedData.getAll();
 
-        for(Map.Entry<String,?> entry : players.entrySet()){
-            savedData.put(Integer.parseInt(entry.getValue().toString()), entry.getKey());
+        for (Map.Entry<String, ?> entry : fetchedData.entrySet()) {
+            fetchedDataToHashMap.put(entry.getKey(), Integer.parseInt(entry.getValue().toString()));
         }
 
-        for(Map.Entry<Integer,String> entry : savedData.entrySet()) {
-            highscore.add("Name: " + entry.getValue() + ", score: " + entry.getKey().toString());
-        }
+        fetchedDataSortedInTreeMap.putAll(fetchedDataToHashMap);
 
-        Collections.reverse(highscore);
+        for (Map.Entry<String, Integer> entry : fetchedDataSortedInTreeMap.entrySet()) {
+            highscore.add(getResources().getString(R.string.hs_name) + entry.getKey() + getResources().getString(R.string.hs_score) + entry.getValue().toString());
+        }
 
         populateListView(rootView);
 
         return rootView;
     }
 
-    public void populateListView(View rootView){
+    public void populateListView(View rootView) {
         highscoreListView = (ListView) rootView.findViewById(R.id.highscoreList);
 
         ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, highscore);
 
         highscoreListView.setAdapter(objAdapter);
+    }
+}
+
+final class ValueComparator implements Comparator<String> {
+
+    Map<String, Integer> base;
+
+    public ValueComparator(Map<String, Integer> base) {
+        this.base = base;
+    }
+
+    // Note: this comparator imposes orderings that are inconsistent with equals.
+    public int compare(String a, String b) {
+        if (base.get(a) >= base.get(b)) {
+            return -1;
+        } else {
+            return 1;
+        } // returning 0 would merge keys
     }
 }

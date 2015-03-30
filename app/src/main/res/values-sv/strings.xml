@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QuiZity</string>
+    <string name="enterName">namn</string>
+    <string name="errorNoName">Skriv in ditt namn</string>
+    <string name="highscore">Topplistan</string>
+    <string name="howTo">Hur fan gör man?</string>
+    <string name="placeHolderCity">ingen stad</string>
+    <string name="play">Spela</string>
+    <string name="round">Runda: </string>
+    <string name="score">Poäng: 0</string>
+    <string name="startGame">Starta spelet</string>
+    <string name="total_time">Total tid: 0</string>
+    <string name="action_settings">Inställningar</string>
+    <string name="hs_name">Namn: </string>
+    <string name="hs_score">, poäng: </string>
+</resources>

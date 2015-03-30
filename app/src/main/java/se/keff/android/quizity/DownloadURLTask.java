@@ -16,7 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class DownloadURLTask extends AsyncTask<String, Void, String> {
+public final class DownloadURLTask extends AsyncTask<String, Void, String> {
 
     private static final String LOG_TAG = "DownloadURLTask";
     public ImageButton button;
