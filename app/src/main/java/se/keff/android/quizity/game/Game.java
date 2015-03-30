@@ -12,8 +12,7 @@ import java.util.concurrent.ExecutionException;
 import se.keff.android.quizity.highscore.HighscoreActivity;
 import se.keff.android.quizity.R;
 
-public final class Game
-{
+public final class Game {
     private final View rootView;
     private static final String URL = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=";
     private StringBuilder builder = new StringBuilder(URL);
@@ -22,16 +21,15 @@ public final class Game
     private final ArrayList<String> displayCities;
     private final ArrayList<String> displayCitiesIndexNumbers;
 
+    private String correctCity;
     private int cities_size;
     private int round = 0;
     private int randomDisplayCity;
     private int randomCity;
     public static int score;
     public static int totalTime;
-    private String correctCity;
 
-    public Game(View rootView)
-    {
+    public Game(View rootView) {
         this.rootView = rootView;
         String[] citiesArray = rootView.getResources().getStringArray(R.array.cities);
         String[] citiesImageNumbersArray = rootView.getResources().getStringArray(R.array.citiesImageNumber);
@@ -43,40 +41,35 @@ public final class Game
         cities_size = cities.size();
     }
 
-    public void getImages()
-    {
-        ImageButton button1 = (ImageButton) rootView.findViewById(R.id.imageButton1);
-        ImageButton button2 = (ImageButton) rootView.findViewById(R.id.imageButton2);
-        ImageButton button3 = (ImageButton) rootView.findViewById(R.id.imageButton3);
-        ImageButton button4 = (ImageButton) rootView.findViewById(R.id.imageButton4);
+    public void getImages() {
+        ArrayList<ImageButton> buttons = new ArrayList<>();
+        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton1));
+        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton2));
+        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton3));
+        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton4));
 
         randomDisplayCity = (int) ((Math.random() * displayCities.size()));
-        try
-        {
-            loadImage(button1);
-            loadImage(button2);
-            loadImage(button3);
-            loadImage(button4);
-        } catch (InterruptedException e)
-        {
+        try {
+            for (ImageButton button : buttons) {
+                loadImage(button);
+            }
+
+        } catch (InterruptedException e) {
             e.printStackTrace();
-        } catch (ExecutionException e)
-        {
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
     }
 
-    public void nextRound(ImageButton buttonClicked, int stoppedMilliseconds)
-    {
-        if (correctCity == buttonClicked.getTag())
-        {
+    public void nextRound(ImageButton buttonClicked, int stoppedMilliseconds) {
+        if (correctCity == buttonClicked.getTag()) {
             TextView displayScore = (TextView) rootView.findViewById(R.id.score);
             TextView displayTime = (TextView) rootView.findViewById(R.id.total_time);
 
             score++;
-            if(stoppedMilliseconds > 0 && stoppedMilliseconds < 10000){
-                totalTime += (stoppedMilliseconds/1000);
-            }else if(stoppedMilliseconds > 10000){
+            if (stoppedMilliseconds > 0 && stoppedMilliseconds < 10000) {
+                totalTime += (stoppedMilliseconds / 1000);
+            } else if (stoppedMilliseconds > 10000) {
                 totalTime += 9;
             }
 
@@ -84,9 +77,9 @@ public final class Game
             displayTime.setText(displayTime.getResources().getString(R.string.total_time).replace("0", "") + totalTime);
         }
 
-        if (!cities.isEmpty()){
+        if (!cities.isEmpty()) {
             startRound();
-        }else{
+        } else {
             endGame();
         }
     }
@@ -97,23 +90,19 @@ public final class Game
         rootView.getContext().startActivity(intent);
     }
 
-    public void startRound()
-    {
+    public void startRound() {
         round++;
         TextView displayRound = (TextView) rootView.findViewById(R.id.round);
         TextView displayCityName = (TextView) rootView.findViewById(R.id.cityName);
 
-        //ArrayList<String> displayCities = new ArrayList<>();
-        //ArrayList<String> displayCitiesIndexNumbers = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            pickCity();
+        }
 
-        pickCity();
-        pickCity();
-        pickCity();
-        pickCity();
         correctCity = displayCities.get(0);
 
         displayCityName.setText(correctCity);
-        displayRound.setText(displayRound.getResources().getString(R.string.round) + String.valueOf(round) + "/" + (cities_size/4));
+        displayRound.setText(displayRound.getResources().getString(R.string.round) + String.valueOf(round) + "/" + (cities_size / 4));
 
         getImages();
     }
@@ -128,7 +117,7 @@ public final class Game
         displayCitiesIndexNumbers.remove(randomDisplayCity);
     }
 
-    public void pickCity(){
+    public void pickCity() {
         randomCity = (int) ((Math.random() * cities.size()));
         displayCities.add(cities.get(randomCity));
         displayCitiesIndexNumbers.add(citiesIndexNumbers.get(randomCity));

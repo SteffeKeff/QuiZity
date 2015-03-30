@@ -15,6 +15,7 @@ public final class GameplayFragment extends Fragment {
 
     Game game;
     Chronometer timer;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_gameplay, container, false);
@@ -36,7 +37,7 @@ public final class GameplayFragment extends Fragment {
         return rootView;
     }
 
-    public void buttonClicked(ImageButton buttonId){
+    public void buttonClicked(ImageButton buttonId) {
         int stoppedMilliseconds = 0;
         timer.stop();
         String chronoText = timer.getText().toString();
@@ -55,26 +56,26 @@ public final class GameplayFragment extends Fragment {
         game.nextRound(buttonId, stoppedMilliseconds);
     }
 
-    View.OnClickListener listener1 = new View.OnClickListener(){
-        public void onClick(View v){
+    View.OnClickListener listener1 = new View.OnClickListener() {
+        public void onClick(View v) {
             buttonClicked((ImageButton) v.findViewById(R.id.imageButton1));
         }
     };
 
-    View.OnClickListener listener2 = new View.OnClickListener(){
-        public void onClick(View v){
+    View.OnClickListener listener2 = new View.OnClickListener() {
+        public void onClick(View v) {
             buttonClicked((ImageButton) v.findViewById(R.id.imageButton2));
         }
     };
 
-    View.OnClickListener listener3 = new View.OnClickListener(){
-        public void onClick(View v){
+    View.OnClickListener listener3 = new View.OnClickListener() {
+        public void onClick(View v) {
             buttonClicked((ImageButton) v.findViewById(R.id.imageButton3));
         }
     };
 
-    View.OnClickListener listener4 = new View.OnClickListener(){
-        public void onClick(View v){
+    View.OnClickListener listener4 = new View.OnClickListener() {
+        public void onClick(View v) {
             buttonClicked((ImageButton) v.findViewById(R.id.imageButton4));
         }
     };
