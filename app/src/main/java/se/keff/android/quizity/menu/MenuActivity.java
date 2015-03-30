@@ -1,9 +1,14 @@
-package se.keff.android.quizity;
+package se.keff.android.quizity.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+
+import se.keff.android.quizity.highscore.HighscoreActivity;
+import se.keff.android.quizity.R;
+import se.keff.android.quizity.game.GameActivity;
+import se.keff.android.quizity.instructions.InstructionsActivity;
 
 public final class MenuActivity extends ActionBarActivity {
 
@@ -28,6 +33,12 @@ public final class MenuActivity extends ActionBarActivity {
     public void showHighscore(View view)
     {
         Intent intent = new Intent(this, HighscoreActivity.class);
+        startActivity(intent);
+    }
+
+    public void showInstructions(View view)
+    {
+        Intent intent = new Intent(this, InstructionsActivity.class);
         startActivity(intent);
     }
 }

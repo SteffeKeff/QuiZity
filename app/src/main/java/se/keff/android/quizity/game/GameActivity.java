@@ -1,4 +1,4 @@
-package se.keff.android.quizity;
+package se.keff.android.quizity.game;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import se.keff.android.quizity.R;
 
 public final class GameActivity extends ActionBarActivity
 {

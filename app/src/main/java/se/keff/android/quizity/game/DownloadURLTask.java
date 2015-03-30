@@ -1,4 +1,4 @@
-package se.keff.android.quizity;
+package se.keff.android.quizity.game;
 
 import android.os.AsyncTask;
 import android.util.Log;

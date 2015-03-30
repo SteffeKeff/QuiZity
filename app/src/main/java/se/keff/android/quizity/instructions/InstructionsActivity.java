@@ -1,9 +1,14 @@
-package se.keff.android.quizity;
+package se.keff.android.quizity.instructions;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
-public final class HighscoreActivity extends ActionBarActivity {
+import se.keff.android.quizity.R;
+
+/**
+ * Created by Steffe on 15-03-30.
+ */
+public class InstructionsActivity extends ActionBarActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -11,8 +16,8 @@ public final class HighscoreActivity extends ActionBarActivity {
         setContentView(R.layout.main_layout);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new HighscoreFragment())
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new InstructionsFragment())
                     .commit();
         }
     }

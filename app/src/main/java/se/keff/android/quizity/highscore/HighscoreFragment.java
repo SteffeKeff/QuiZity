@@ -1,4 +1,4 @@
-package se.keff.android.quizity;
+package se.keff.android.quizity.highscore;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,6 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import se.keff.android.quizity.R;
+import se.keff.android.quizity.game.Game;
+import se.keff.android.quizity.game.GameActivity;
+
 public final class HighscoreFragment extends Fragment {
 
     private ListView highscoreListView;
@@ -28,7 +32,7 @@ public final class HighscoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.highscore_layout, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_highscore, container, false);
 
         if (!GameActivity.playerName.isEmpty()) {
 
@@ -56,7 +60,7 @@ public final class HighscoreFragment extends Fragment {
         fetchedDataSortedInTreeMap.putAll(fetchedDataToHashMap);
 
         for (Map.Entry<String, Integer> entry : fetchedDataSortedInTreeMap.entrySet()) {
-            highscore.add(getResources().getString(R.string.hs_name) + entry.getKey() + getResources().getString(R.string.hs_score) + entry.getValue().toString());
+            highscore.add(getResources().getString(R.string.hs_name) + " " + entry.getKey() + getResources().getString(R.string.hs_score) + " " + entry.getValue().toString());
         }
 
         populateListView(rootView);

@@ -1,24 +1,22 @@
-package se.keff.android.quizity;
+package se.keff.android.quizity.instructions;
 
-import android.app.DialogFragment;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import se.keff.android.quizity.R;
 
-public final class EnterNameFragment extends DialogFragment {
-
-    View rootView;
-
-    public EnterNameFragment(){
-    }
+/**
+ * Created by Steffe on 15-03-30.
+ */
+public final class InstructionsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_enter_name, container, false);
-
+        View rootView = inflater.inflate(R.layout.fragment_instructions, container, false);
         return rootView;
     }
 }

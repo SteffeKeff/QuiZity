@@ -4,7 +4,7 @@
 
     <string name="play">Play game</string>
     <string name="highscore">Highscore</string>
-    <string name="howTo">How to</string>
+    <string name="howTo">Instructions</string>
 
     <string name="enterName">name</string>
     <!--<string name="start">Start</string>-->
@@ -18,5 +18,6 @@
     <string name="total_time">Total time: 0</string>
     <string name="hs_name">Name: </string>
     <string name="hs_score">, score: </string>
+    <string name="instructions">A random cityname will show up. Click on the correct image as fast as possible.</string>
 
 </resources>

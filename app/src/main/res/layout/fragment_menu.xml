@@ -26,19 +26,20 @@
         android:src="@drawable/london" />
 
     <Button
-        android:id="@+id/buttonHowTo"
+        android:id="@+id/buttonInstructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/howTo"
         android:layout_below="@+id/startMenuImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp" />
+        android:layout_marginTop="67dp"
+        android:onClick="showInstructions"/>
 
     <Button
         android:id="@+id/buttonHighscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonHowTo"
+        android:layout_below="@id/buttonInstructions"
         android:layout_centerHorizontal="true"
         android:onClick="showHighscore"
         android:text="@string/highscore" />

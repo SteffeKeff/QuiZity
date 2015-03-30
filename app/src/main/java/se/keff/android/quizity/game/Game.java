@@ -1,4 +1,4 @@
-package se.keff.android.quizity;
+package se.keff.android.quizity.game;
 
 import android.content.Intent;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
+
+import se.keff.android.quizity.highscore.HighscoreActivity;
+import se.keff.android.quizity.R;
 
 public final class Game
 {
