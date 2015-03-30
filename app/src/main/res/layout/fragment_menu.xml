@@ -19,27 +19,30 @@
             android:id="@+id/buttonInstructions"
             android:text="@string/fa_book"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal"
-            android:padding="0dp"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:padding="0dp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical" />
         <TextView
             android:text="@string/howTo"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="0.6" />
         <TextView
             android:id="@+id/arrow1"
             android:text="@string/fa_angle_right"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"
             android:gravity="center_vertical|right"
             android:padding="10dp"
-            android:layout_weight="0.70"/>
+            android:layout_gravity="center_vertical" />
     </LinearLayout>
 
     <!-- Highscore Button-->
@@ -54,27 +57,31 @@
             android:id="@+id/buttonHighscore"
             android:text="@string/fa_list"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal"
-            android:padding="0dp"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:padding="0dp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            />
         <TextView
             android:text="@string/highscore"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:layout_gravity="center"/>
         <TextView
             android:id="@+id/arrow2"
             android:text="@string/fa_angle_right"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"
             android:gravity="center_vertical|right"
             android:padding="10dp"
-            android:layout_weight="0.70"/>
+            android:layout_gravity="center_vertical"/>
     </LinearLayout>
 
     <!-- Play Button-->
@@ -89,27 +96,30 @@
             android:id="@+id/buttonPlay"
             android:text="@string/fa_game"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal"
-            android:padding="0dp"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:padding="0dp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical" />
         <TextView
             android:text="@string/play"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:layout_gravity="center_vertical" />
         <TextView
             android:id="@+id/arrow3"
             android:text="@string/fa_angle_right"
             android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"
             android:gravity="center_vertical|right"
             android:padding="10dp"
-            android:layout_weight="0.70"/>
+            android:layout_gravity="center_vertical"/>
     </LinearLayout>
 
 
