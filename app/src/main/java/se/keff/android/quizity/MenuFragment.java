@@ -6,9 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by Steffe on 15-03-26.
- */
 public final class MenuFragment extends Fragment {
 
     public MenuFragment() {

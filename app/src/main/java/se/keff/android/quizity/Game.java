@@ -1,8 +1,6 @@
 package se.keff.android.quizity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -90,11 +88,16 @@ public final class Game
         {
             TextView displayScore = (TextView) rootView.findViewById(R.id.score);
             TextView displayTime = (TextView) rootView.findViewById(R.id.total_time);
+
             score++;
-            totalTime += (stoppedMilliseconds/1000);
+            if(stoppedMilliseconds > 0 && stoppedMilliseconds < 10000){
+                totalTime += (stoppedMilliseconds/1000);
+            }else if(stoppedMilliseconds > 10000){
+                totalTime += 9;
+            }
+
             displayScore.setText(displayScore.getResources().getString(R.string.score).replace("0", "") + score);
             displayTime.setText(displayTime.getResources().getString(R.string.total_time).replace("0", "") + totalTime);
-
         }
 
         if (!cities.isEmpty()){
@@ -105,14 +108,6 @@ public final class Game
     }
 
     private void endGame() {
-//        SharedPreferences currentPlayer = rootView.getContext().getSharedPreferences("currentPlayer", Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = currentPlayer.edit();
-//
-//        editor.putString("name", GameActivity.playerName);
-//        editor.putInt("score", score);
-//        editor.putInt("time", totalTime);
-//        editor.commit();
-
         Intent intent = new Intent();
         intent.setClass(rootView.getContext(), HighscoreActivity.class);
         rootView.getContext().startActivity(intent);

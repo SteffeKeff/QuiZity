@@ -21,11 +21,11 @@
         android:id="@+id/highscoreList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/highscoreText"
-        android:layout_alignStart="@+id/highscoreText"
         android:layout_below="@+id/highscoreText"
         android:layout_marginTop="70dp"
-        android:layout_alignRight="@+id/highscoreText"
-        android:layout_alignEnd="@+id/highscoreText" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

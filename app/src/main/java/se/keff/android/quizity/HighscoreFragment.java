@@ -4,69 +4,56 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.Map;
-import java.util.Set;
+import java.util.TreeMap;
 
 public class HighscoreFragment extends Fragment {
 
-    private ListView myListView;
-    private String[] strListView;
-    String items[] = {"blue","green","red","black","purple","yellow","white","grey"};
-//    ArrayList<String> highscoreNames = new ArrayList<>();
-//    ArrayList<Integer> highscoreScores = new ArrayList<>();
+    private ListView highscoreListView;
     ArrayList<String> highscore = new ArrayList<>();
+    TreeMap<Integer, String> savedData = new TreeMap<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.highscore_layout, container, false);
 
-//        if(sharedPref.contains("name")){
-//            String currentPlayer = sharedPref.getString("name", "tomt");
-//            int currentScore = sharedPref.getString("name", "tomt");
-//            int current = sharedPref.getString("name", "tomt");
-//            Toast.makeText(this, currentPlayer, Toast.LENGTH_SHORT ).show();
-//            SharedPreferences.Editor editor = sharedPref.edit();
-//            editor.remove("name").commit();
-//        }
-
         if(!GameActivity.playerName.isEmpty()){
-            Toast.makeText(getActivity(), GameActivity.playerName, Toast.LENGTH_SHORT).show();
 
-            SharedPreferences names = getActivity().getSharedPreferences("names", Context.MODE_PRIVATE);
+            SharedPreferences names = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = names.edit();
             int totalScore = Game.score*10 - Game.totalTime;
+
             editor.putInt(GameActivity.playerName, totalScore);
 
             editor.commit();
 
             GameActivity.playerName = "";
-        }else{
-            Toast.makeText(getActivity(), "From menu", Toast.LENGTH_SHORT).show();
+            Game.score = 0;
+            Game.totalTime = 0;
         }
 
-        SharedPreferences playerNames = getActivity().getSharedPreferences("names", Context.MODE_PRIVATE);
-        SharedPreferences playerScores = getActivity().getSharedPreferences("scores", Context.MODE_PRIVATE);
-        SharedPreferences playerTimes = getActivity().getSharedPreferences("times", Context.MODE_PRIVATE);
+        SharedPreferences playerNames = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
 
         Map<String, ?> players = playerNames.getAll();
 
         for(Map.Entry<String,?> entry : players.entrySet()){
-//            highscoreNames.add(entry.getKey());
-//            highscoreScores.add(Integer.parseInt(entry.getValue().toString()));
-            highscore.add("Name: " + entry.getKey() + ", score: " + entry.getValue().toString());
+            savedData.put(Integer.parseInt(entry.getValue().toString()), entry.getKey());
         }
+
+        for(Map.Entry<Integer,String> entry : savedData.entrySet()) {
+            highscore.add("Name: " + entry.getValue() + ", score: " + entry.getKey().toString());
+        }
+
+        Collections.reverse(highscore);
 
         populateListView(rootView);
 
@@ -74,12 +61,10 @@ public class HighscoreFragment extends Fragment {
     }
 
     public void populateListView(View rootView){
-        myListView = (ListView) rootView.findViewById(R.id.highscoreList);
-
-        strListView = getResources().getStringArray(R.array.cities);
+        highscoreListView = (ListView) rootView.findViewById(R.id.highscoreList);
 
         ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, highscore);
 
-        myListView.setAdapter(objAdapter);
+        highscoreListView.setAdapter(objAdapter);
     }
 }
