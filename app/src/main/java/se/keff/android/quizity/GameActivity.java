@@ -1,12 +1,17 @@
 package se.keff.android.quizity;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,12 +32,16 @@ public final class GameActivity extends ActionBarActivity{
                     .add(R.id.container, new EnterNameFragment())
                     .commit();
         }
+
     }
 
     public void startGame(View view){
 
         EditText name = (EditText) findViewById(R.id.name);
+
         String errorMessage = getResources().getString(R.string.errorNoName);
+        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+        final Button button = (Button) findViewById(R.id.startButton);
 
         if(name.getText().toString().trim().isEmpty()){
             Toast.makeText(this ,errorMessage, Toast.LENGTH_SHORT).show();

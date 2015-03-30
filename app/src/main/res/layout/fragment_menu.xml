@@ -20,49 +20,48 @@
         android:src="@drawable/earth"
         android:layout_marginTop="-10dp"/>
 
-
     <Button
         android:id="@+id/buttonSettings"
-        android:layout_width="500dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/startMenuImage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-5dp"
         android:onClick="animButton2"
         android:text="@string/settings"
-        android:background="#998B73"
-        android:layout_marginBottom="5dp"/>
+        android:background="@drawable/frame"
+        android:layout_marginBottom="6dp"/>
 
     <Button
         android:id="@+id/buttonHowTo"
-        android:layout_width="500dp"
-        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/buttonSettings"
         android:layout_centerHorizontal="true"
-        android:background="#998B73"
+        android:background="@drawable/frame"
         android:onClick="animButton3"
         android:text="@string/howTo"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="6dp"
         />
 
     <Button
         android:id="@+id/buttonHighscore"
-        android:layout_width="500dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonHowTo"
         android:layout_centerHorizontal="true"
-        android:background="#998B73"
+        android:background="@drawable/frame"
         android:text="@string/highscore"
         android:onClick="animButton"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="6dp"/>
 
     <Button
         android:id="@+id/buttonPlay"
-        android:layout_width="500dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonHighscore"
         android:layout_centerHorizontal="true"
-        android:background="#998B73"
+        android:background="@drawable/frame"
         android:onClick="playGame"
         android:text="@string/play" />
 

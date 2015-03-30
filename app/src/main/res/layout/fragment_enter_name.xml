@@ -2,10 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="500dp"
     android:id="@+id/enterNameFragment"
     android:clickable="false"
     android:background="#fff9ffdd">
+
 
     <EditText
         android:id="@+id/name"
@@ -27,7 +28,11 @@
         android:id="@+id/startButton"
         android:onClick="startGame"
         android:imeOptions="actionDone"
+        android:background="@drawable/frame"
         android:layout_below="@+id/name"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        />
+
+
 
 </RelativeLayout>
