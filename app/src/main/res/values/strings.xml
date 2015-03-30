@@ -1,7 +1,8 @@
 <resources>
     <string name="fa_list">&#xf03a;</string>
     <string name="fa_game">&#xf11b;</string>
-    <string name= "fa_book">&#xf02d;</string>
+    <string name="fa_book">&#xf02d;</string>
+    <string name="fa_angle_right">&#xf105;</string>
     <string name="app_name">QuiZity</string>
     <string name="action_settings">Settings</string>
 
@@ -21,6 +22,6 @@
     <string name="total_time">Total time: 0</string>
     <string name="hs_name">Name: </string>
     <string name="hs_score">, score: </string>
-    <string name="instructions">A random cityname will show up. Click on the correct image as fast as possible.</string>
+    <string name="instructions">A random cityname will show up.\nClick on the correct image as fast as possible.</string>
 
 </resources>
