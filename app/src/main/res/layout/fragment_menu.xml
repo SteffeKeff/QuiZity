@@ -2,12 +2,122 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#0099CC"
+              android:background="#ff569fcc"
               android:orientation="vertical"
               android:weightSum="3"
               tools:context=".MenuActivity$MenuFragment">
 
-    <Button
+    <!-- Instructions Button-->
+    <LinearLayout
+        android:onClick="showInstructions"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#0099CC">
+
+        <TextView
+            android:id="@+id/buttonInstructions"
+            android:text="@string/fa_book"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="0dp"/>
+        <TextView
+            android:text="@string/howTo"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:id="@+id/arrow1"
+            android:text="@string/fa_angle_right"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:padding="10dp"
+            android:layout_weight="0.70"/>
+    </LinearLayout>
+
+    <!-- Highscore Button-->
+    <LinearLayout
+        android:onClick="showHighscore"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFBB33">
+
+        <TextView
+            android:id="@+id/buttonHighscore"
+            android:text="@string/fa_list"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="0dp"/>
+        <TextView
+            android:text="@string/highscore"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:id="@+id/arrow2"
+            android:text="@string/fa_angle_right"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:padding="10dp"
+            android:layout_weight="0.70"/>
+    </LinearLayout>
+
+    <!-- Play Button-->
+    <LinearLayout
+        android:onClick="playGame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FF4444">
+
+        <TextView
+            android:id="@+id/buttonPlay"
+            android:text="@string/fa_game"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="0dp"/>
+        <TextView
+            android:text="@string/play"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:id="@+id/arrow3"
+            android:text="@string/fa_angle_right"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:padding="10dp"
+            android:layout_weight="0.70"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+    <!--
+<Button
         android:id="@+id/buttonInstructions"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -42,5 +152,4 @@
         android:textColor="#ffffff"
         android:textSize="40dp"
         />
-
-</LinearLayout>
+    -->
