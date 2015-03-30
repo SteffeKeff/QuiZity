@@ -1,74 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/gameplay"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffccfaff">
+    android:background="#ffccfaff"
+    android:tag="@string/gamePlay">
 
     <TextView
         android:id="@+id/cityName"
-        android:text="@string/placeHolderCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:text="@string/placeHolderCity"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="45dp"
-        android:typeface="serif"
-        android:layout_marginTop="160dp"/>
+        android:typeface="serif"/>
 
     <ImageButton
         android:id="@+id/imageButton1"
         android:layout_width="175dp"
-        android:maxHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:onClick="buttonAnswer"/>
+        android:maxHeight="100dp"
+        android:scaleType="fitXY"/>
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="175dp"
-        android:maxHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:onClick="buttonAnswer"/>
+        android:maxHeight="100dp"
+        android:onClick="buttonAnswer"
+        android:scaleType="fitXY"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="175dp"
-        android:maxHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageButton1"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:onClick="buttonAnswer"/>
+        android:maxHeight="100dp"
+        android:onClick="buttonAnswer"
+        android:scaleType="fitXY"/>
 
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="175dp"
-        android:maxHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/imageButton2"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:onClick="buttonAnswer"/>
+        android:maxHeight="100dp"
+        android:onClick="buttonAnswer"
+        android:scaleType="fitXY"/>
 
     <Chronometer
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/cityName"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/round"
+        android:id="@+id/round"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/score"
+        android:id="@+id/score"
+        android:layout_below="@+id/round"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/total_time"
+        android:id="@+id/total_time"
+        android:layout_below="@+id/score"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

@@ -20,6 +20,9 @@ import android.widget.Toast;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
+import se.keff.android.quizity.game.EnterNameFragment;
+import se.keff.android.quizity.game.GameplayFragment;
+
 public final class GameActivity extends ActionBarActivity{
 
     @Override

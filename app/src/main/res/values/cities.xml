@@ -11,6 +11,11 @@
         <item>Paris</item>
         <item>Moscow</item>
         <item>Rome</item>
+
+        <item>Copenhagen</item>
+        <item>Vienna</item>
+        <item>Prague</item>
+        <item>Berlin</item>
     </string-array>
 
     <string-array name="citiesImageNumber">
@@ -19,8 +24,13 @@
         <item>0</item>
         <item>1</item>
 
+        <item>2</item>
         <item>0</item>
-        <item>1</item>
+        <item>0</item>
+        <item>0</item>
+
+        <item>0</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
     </string-array>
