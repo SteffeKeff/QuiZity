@@ -1,11 +1,11 @@
 package se.keff.android.quizity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,14 +14,14 @@ import java.util.concurrent.ExecutionException;
 public final class Game
 {
     private final View rootView;
-    private static String url = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=";
-    private static StringBuilder builder = new StringBuilder(url);
+    private static final String URL = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=";
+    private StringBuilder builder = new StringBuilder(URL);
     private final ArrayList<String> cities;
     private final ArrayList<String> citiesIndexNumbers;
     private int cities_size;
     private int round = 0;
-    public int score;
-    public int totalTime;
+    public static int score;
+    public static int totalTime;
     private String correctCity;
 
     public Game(View rootView)
@@ -48,7 +48,7 @@ public final class Game
             builder.append(displayCities.get(randomCity));
             new DownloadURLTask(button1).execute(builder.toString(), displayCitiesImageNumbers.get(randomCity)).get();
             button1.setTag(displayCities.get(randomCity));
-            builder.replace(0, builder.capacity(), url);
+            builder.replace(0, builder.capacity(), URL);
             displayCities.remove(randomCity);
             displayCitiesImageNumbers.remove(randomCity);
 
@@ -56,7 +56,7 @@ public final class Game
             builder.append(displayCities.get(randomCity));
             new DownloadURLTask(button2).execute(builder.toString(), displayCitiesImageNumbers.get(randomCity)).get();
             button2.setTag(displayCities.get(randomCity));
-            builder.replace(0, builder.capacity(), url);
+            builder.replace(0, builder.capacity(), URL);
             displayCities.remove(randomCity);
             displayCitiesImageNumbers.remove(randomCity);
 
@@ -64,7 +64,7 @@ public final class Game
             builder.append(displayCities.get(randomCity));
             new DownloadURLTask(button3).execute(builder.toString(), displayCitiesImageNumbers.get(randomCity)).get();
             button3.setTag(displayCities.get(randomCity));
-            builder.replace(0, builder.capacity(), url);
+            builder.replace(0, builder.capacity(), URL);
             displayCities.remove(randomCity);
             displayCitiesImageNumbers.remove(randomCity);
 
@@ -72,7 +72,7 @@ public final class Game
             builder.append(displayCities.get(randomCity));
             new DownloadURLTask(button4).execute(builder.toString(), displayCitiesImageNumbers.get(randomCity)).get();
             button4.setTag(displayCities.get(randomCity));
-            builder.replace(0, builder.capacity(), url);
+            builder.replace(0, builder.capacity(), URL);
             displayCities.remove(randomCity);
             displayCitiesImageNumbers.remove(randomCity);
         } catch (InterruptedException e)
@@ -91,15 +91,31 @@ public final class Game
             TextView displayScore = (TextView) rootView.findViewById(R.id.score);
             TextView displayTime = (TextView) rootView.findViewById(R.id.total_time);
             score++;
-            displayScore.setText("Score: " + score);
-            totalTime += stoppedMilliseconds;
-            displayTime.setText("Total time: " + (totalTime/1000));
+            totalTime += (stoppedMilliseconds/1000);
+            displayScore.setText(displayScore.getResources().getString(R.string.score).replace("0", "") + score);
+            displayTime.setText(displayTime.getResources().getString(R.string.total_time).replace("0", "") + totalTime);
 
         }
 
         if (!cities.isEmpty()){
             startRound();
+        }else{
+            endGame();
         }
+    }
+
+    private void endGame() {
+//        SharedPreferences currentPlayer = rootView.getContext().getSharedPreferences("currentPlayer", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = currentPlayer.edit();
+//
+//        editor.putString("name", GameActivity.playerName);
+//        editor.putInt("score", score);
+//        editor.putInt("time", totalTime);
+//        editor.commit();
+
+        Intent intent = new Intent();
+        intent.setClass(rootView.getContext(), HighscoreActivity.class);
+        rootView.getContext().startActivity(intent);
     }
 
     public void startRound()

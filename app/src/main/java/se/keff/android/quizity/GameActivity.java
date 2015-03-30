@@ -1,6 +1,7 @@
 package se.keff.android.quizity;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -18,6 +19,7 @@ import com.koushikdutta.ion.Ion;
 
 public final class GameActivity extends ActionBarActivity
 {
+    public static String playerName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,14 +38,15 @@ public final class GameActivity extends ActionBarActivity
     public void startGame(View view)
     {
 
-        EditText name = (EditText) findViewById(R.id.name);
+        EditText enteredName = (EditText) findViewById(R.id.name);
         String errorMessage = getResources().getString(R.string.errorNoName);
 
-        if (name.getText().toString().trim().isEmpty())
+        if (enteredName.getText().toString().trim().isEmpty())
         {
             Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
         } else
         {
+            playerName = enteredName.getText().toString().trim();
             hideKeyboard(view.getWindowToken());
             getFragmentManager().beginTransaction()
                     .replace(R.id.container, new GameplayFragment())
@@ -55,27 +58,5 @@ public final class GameActivity extends ActionBarActivity
     {
         InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         manager.hideSoftInputFromWindow(binder, 0);
-    }
-
-    public void buttonAnswer(View view)
-    {
-//        GameplayFragment fragment = (GameplayFragment) getFragmentManager().findFragmentById(R.id.gameplay);
-//        fragment.buttonClicked(view ,view.getId());
-
-//        switch (view.getId())
-//        {
-//            case R.id.imageButton1:
-//                Toast.makeText(this, "FEEEEl", Toast.LENGTH_LONG).show();
-//                break;
-//            case R.id.imageButton2:
-//                Toast.makeText(this, "RÄTT!!", Toast.LENGTH_LONG).show();
-//                break;
-//            case R.id.imageButton3:
-//                Toast.makeText(this, "FEEEEEL!", Toast.LENGTH_LONG).show();
-//                break;
-//            case R.id.imageButton4:
-//                Toast.makeText(this, "FEEEEL!", Toast.LENGTH_LONG).show();
-//                break;
-//        }
     }
 }

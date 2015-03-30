@@ -71,7 +71,6 @@ public class DownloadURLTask extends AsyncTask<String, Void, String> {
             }
         }
         //tar bort första och sista för att få bort " och "
-        Log.e("ASD", result.toString().substring(1, result.length() - 1));
         return result.toString().substring(1, result.length() - 1);
     }
 

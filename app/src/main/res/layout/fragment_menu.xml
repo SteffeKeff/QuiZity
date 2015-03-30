@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonHowTo"
         android:layout_centerHorizontal="true"
+        android:onClick="showHighscore"
         android:text="@string/highscore" />
 
     <Button

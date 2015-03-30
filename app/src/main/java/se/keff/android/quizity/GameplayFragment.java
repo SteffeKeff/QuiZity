@@ -8,11 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Arrays;
-import java.util.List;
 
 public final class GameplayFragment extends Fragment {
 
@@ -21,6 +16,7 @@ public final class GameplayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_gameplay, container, false);
+
         game = new Game(rootView);
         ImageButton button = (ImageButton) rootView.findViewById(R.id.imageButton1);
         button.setOnClickListener(listener1);
@@ -51,7 +47,6 @@ public final class GameplayFragment extends Fragment {
                     + Integer.parseInt(array[1]) * 60 * 1000
                     + Integer.parseInt(array[2]) * 1000;
         }
-        // Toast.makeText(getActivity(), String.valueOf(stoppedMilliseconds), Toast.LENGTH_SHORT).show();
         timer.setBase(SystemClock.elapsedRealtime());
         timer.start();
 

@@ -24,4 +24,10 @@ public final class MenuActivity extends ActionBarActivity {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
     }
+
+    public void showHighscore(View view)
+    {
+        Intent intent = new Intent(this, HighscoreActivity.class);
+        startActivity(intent);
+    }
 }
