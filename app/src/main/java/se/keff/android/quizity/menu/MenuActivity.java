@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.TextView;
 
 import se.keff.android.quizity.highscore.HighscoreActivity;
@@ -43,8 +44,12 @@ public final class MenuActivity extends ActionBarActivity
 
     public void showHighscore(View view)
     {
-        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
-        //??final TextView button = (TextView) findViewById(R.id.buttonHighscore);
+
+        final Animation animAlpha = AnimationUtils.loadAnimation(this,R.anim.anim_alpha);
+        final Button button = (Button) findViewById(R.id.buttonHighscore);
+        MediaPlayer player = MediaPlayer.create(this, R.raw.jazz);
+        player.start();
+
         view.startAnimation(animAlpha);
         Intent intent = new Intent(this, HighscoreActivity.class);
         startActivity(intent);

@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/highscore_layout">
+    android:id="@+id/highscore_layout"
+    android:background="#FFBB33">
 
 
     <TextView
@@ -15,7 +16,11 @@
         android:textSize="50dp"
         android:typeface="serif"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:background="#FFBB33"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:textColor="#ffffffff"
+        />
 
     <ListView
         android:id="@+id/highscoreList"
@@ -26,6 +31,20 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#FFBB33"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:listSelector="@android:color/transparent"
+        />
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:src="@drawable/highscore"/>
 
 </RelativeLayout>
