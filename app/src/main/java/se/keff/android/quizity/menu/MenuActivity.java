@@ -15,7 +15,7 @@ import se.keff.android.quizity.instructions.InstructionsActivity;
 
 public final class MenuActivity extends ActionBarActivity
 {
-    private MediaPlayer music;
+    private MediaPlayer menuMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -23,11 +23,9 @@ public final class MenuActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
-        music = MediaPlayer.create(this, R.raw.game);
-
-
-
-        music.start();
+        menuMusic = MediaPlayer.create(this, R.raw.game);
+        menuMusic.start();
+        menuMusic.setLooping(true);
 
         if (savedInstanceState == null)
         {
@@ -37,9 +35,9 @@ public final class MenuActivity extends ActionBarActivity
         }
     }
 
-
     public void playGame(View view)
     {
+        menuMusic.setLooping(false);
         final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
         view.startAnimation(animAlpha);
         Intent intent = new Intent(this, GameActivity.class);
@@ -48,10 +46,7 @@ public final class MenuActivity extends ActionBarActivity
 
     public void showHighscore(View view)
     {
-        music.stop();
-        music = MediaPlayer.create(this, R.raw.jazz);
         final Animation animAlpha = AnimationUtils.loadAnimation(this,R.anim.anim_alpha);
-        music.start();
 
         view.startAnimation(animAlpha);
         Intent intent = new Intent(this, HighscoreActivity.class);
@@ -61,7 +56,6 @@ public final class MenuActivity extends ActionBarActivity
     public void showInstructions(View view)
     {
         final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
-        //??final TextView  button = (TextView) findViewById(R.id.buttonInstructions);
         view.startAnimation(animAlpha);
         Intent intent = new Intent(this, InstructionsActivity.class);
         startActivity(intent);

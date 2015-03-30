@@ -2,6 +2,7 @@ package se.keff.android.quizity.highscore;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ public final class HighscoreFragment extends Fragment {
 
     private ListView highscoreListView;
     ArrayList<String> highscore = new ArrayList<>();
+    private MediaPlayer highscoreMusic;
 
     HashMap<String, Integer> fetchedDataToHashMap = new HashMap<String, Integer>();
     ValueComparator valueComparator = new ValueComparator(fetchedDataToHashMap);
@@ -36,6 +38,8 @@ public final class HighscoreFragment extends Fragment {
 
         if (!GameActivity.playerName.isEmpty()) {
 
+            highscoreMusic = MediaPlayer.create(getActivity(), R.raw.jazz);
+            highscoreMusic.start();
             SharedPreferences names = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = names.edit();
             int totalScore = Game.score * 10 - Game.totalTime;
