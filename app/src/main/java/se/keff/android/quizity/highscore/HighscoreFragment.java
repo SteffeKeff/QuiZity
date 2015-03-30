@@ -61,6 +61,7 @@ public final class HighscoreFragment extends Fragment {
 
         for (Map.Entry<String, Integer> entry : fetchedDataSortedInTreeMap.entrySet()) {
             highscore.add(getResources().getString(R.string.hs_name) + " " + entry.getKey() + getResources().getString(R.string.hs_score) + " " + entry.getValue().toString());
+            if(highscore.size() >= 15){break;}
         }
 
         populateListView(rootView);
