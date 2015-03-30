@@ -15,15 +15,19 @@ import se.keff.android.quizity.instructions.InstructionsActivity;
 
 public final class MenuActivity extends ActionBarActivity
 {
-    private final MediaPlayer menuMusic = MediaPlayer.create(this, R.raw.game);
-    private final MediaPlayer highscoreMusic = MediaPlayer.create(this, R.raw.jazz);
+    private MediaPlayer music;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
-        highscoreMusic.stop();
-        menuMusic.start();
+
+        music = MediaPlayer.create(this, R.raw.game);
+
+
+
+        music.start();
 
         if (savedInstanceState == null)
         {
@@ -33,13 +37,6 @@ public final class MenuActivity extends ActionBarActivity
         }
     }
 
-    @Override
-    protected void onPause()
-    {
-        highscoreMusic.stop();
-        menuMusic.stop();
-
-    }
 
     public void playGame(View view)
     {
@@ -51,9 +48,10 @@ public final class MenuActivity extends ActionBarActivity
 
     public void showHighscore(View view)
     {
-        menuMusic.stop();
+        music.stop();
+        music = MediaPlayer.create(this, R.raw.jazz);
         final Animation animAlpha = AnimationUtils.loadAnimation(this,R.anim.anim_alpha);
-        highscoreMusic.start();
+        music.start();
 
         view.startAnimation(animAlpha);
         Intent intent = new Intent(this, HighscoreActivity.class);
