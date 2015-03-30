@@ -46,7 +46,6 @@ public final class MenuActivity extends ActionBarActivity
     {
 
         final Animation animAlpha = AnimationUtils.loadAnimation(this,R.anim.anim_alpha);
-        final Button button = (Button) findViewById(R.id.buttonHighscore);
         MediaPlayer player = MediaPlayer.create(this, R.raw.jazz);
         player.start();
 
