@@ -46,6 +46,7 @@ public final class GameplayFragment extends Fragment {
         String chronoText = timer.getText().toString();
         String array[] = chronoText.split(":");
         if (array.length == 2) {
+
             stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 1000
                     + Integer.parseInt(array[1]) * 1000;
         } else if (array.length == 3) {

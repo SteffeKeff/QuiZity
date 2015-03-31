@@ -2,6 +2,7 @@ package se.keff.android.quizity.menu;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import se.keff.android.quizity.highscore.HighscoreActivity;
 import se.keff.android.quizity.R;
@@ -37,6 +39,15 @@ public final class MenuActivity extends ActionBarActivity
                     .commit();
         }
     }
+
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        menuMusic.pause();
+    }
+
 
     public void playGame(View view)
     {
