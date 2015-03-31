@@ -5,7 +5,6 @@
     <string name="errorNoName">Skriv in ditt namn</string>
     <string name="highscore">Topplistan</string>
     <string name="howTo">Instruktioner</string>
-    <string name="placeHolderCity">ingen stad</string>
     <string name="play">Spela</string>
     <string name="round">Runda: </string>
     <string name="score">Poäng: 0</string>
