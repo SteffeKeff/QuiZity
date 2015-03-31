@@ -3,19 +3,13 @@
      android:interpolator="@android:anim/accelerate_interpolator" >
 
     <translate  xmlns:android="http://schemas.android.com/apk/res/android"
-                android:fromXDelta="-75%p"
-                android:toXDelta="75%p"
-                android:duration="300" >
+                android:fromXDelta="100%p"
+                android:toXDelta="+20%p"
+                android:duration="200" >
 
     </translate>
 
-    <translate  xmlns:android="http://schemas.android.com/apk/res/android"
-                android:startOffset="800"
-                android:fromXDelta="75%p"
-                android:toXDelta="-75%p"
-                android:duration="300" >
 
-    </translate>
 
 
 </set>
