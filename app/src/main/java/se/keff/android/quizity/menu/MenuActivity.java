@@ -1,5 +1,6 @@
 package se.keff.android.quizity.menu;
 
+
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -46,7 +47,7 @@ public final class MenuActivity extends ActionBarActivity
 
     public void showHighscore(View view)
     {
-        final Animation animAlpha = AnimationUtils.loadAnimation(this,R.anim.anim_alpha);
+        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
 
         view.startAnimation(animAlpha);
         Intent intent = new Intent(this, HighscoreActivity.class);

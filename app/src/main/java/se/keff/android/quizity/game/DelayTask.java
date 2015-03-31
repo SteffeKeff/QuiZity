@@ -23,7 +23,7 @@ public final class DelayTask extends AsyncTask<Void, Integer, Integer> {
     protected Integer doInBackground(Void... params) {
         int counter = 0;
         while (counter < Game.originalCities.size()) {
-            SystemClock.sleep(2000 / Game.originalCities.size());
+            SystemClock.sleep(4000 / Game.originalCities.size());
             publishProgress(counter);
             counter++;
         }
@@ -34,7 +34,10 @@ public final class DelayTask extends AsyncTask<Void, Integer, Integer> {
     protected void onProgressUpdate(Integer... progress) {
         final Animation animAlpha = AnimationUtils.loadAnimation(mCounterTextView.getContext(), R.anim.anim_rotate);
 
-        mCounterTextView.startAnimation(animAlpha);
+
+         mCounterTextView.startAnimation(animAlpha);
+
+
         mCounterTextView.setText(Game.originalCities.get(progress[0]));
     }
 
