@@ -24,6 +24,4 @@
     <string name="hs_score">score: </string>
     <string name="instructions">A random cityname will show up.\nClick on the correct image as fast as possible.</string>
     <string name="nameAlreadyExists">Name already exist in highscore</string>
-
-
 </resources>

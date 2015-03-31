@@ -5,17 +5,17 @@ import android.support.v7.app.ActionBarActivity;
 
 import se.keff.android.quizity.R;
 
-/**
- * Created by Steffe on 15-03-30.
- */
-public class InstructionsActivity extends ActionBarActivity{
+public class InstructionsActivity extends ActionBarActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null)
+        {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new InstructionsFragment())
                     .commit();

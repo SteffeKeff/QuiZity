@@ -1,23 +1,26 @@
 package se.keff.android.quizity.menu;
 
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import se.keff.android.quizity.R;
 
-public final class MenuFragment extends Fragment {
+public final class MenuFragment extends Fragment
+{
 
-    public MenuFragment() {
+    public MenuFragment()
+    {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         View rootView = inflater.inflate(R.layout.fragment_menu, container, false);
 
         final Typeface tp = Typeface.createFromAsset(getActivity().getAssets(), "fonts/fontawesome-webfont.ttf");

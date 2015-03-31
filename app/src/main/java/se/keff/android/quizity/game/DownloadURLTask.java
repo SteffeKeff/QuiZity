@@ -16,28 +16,31 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public final class DownloadURLTask extends AsyncTask<String, Void, String> {
-
+public final class DownloadURLTask extends AsyncTask<String, Void, String>
+{
     private static final String LOG_TAG = "DownloadURLTask";
     public ImageButton button;
 
-    public DownloadURLTask(ImageButton mImageButton) {
+    public DownloadURLTask(ImageButton mImageButton)
+    {
         button = mImageButton;
     }
 
     @Override
-    protected String doInBackground(String... params) {
-
-       BufferedReader reader = null;
+    protected String doInBackground(String... params)
+    {
+        BufferedReader reader = null;
         StringBuilder result = new StringBuilder();
 
-        try {
+        try
+        {
             URL url = new URL(params[0]);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
-            while((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null)
+            {
                 result.append(line);
             }
 
@@ -45,22 +48,26 @@ public final class DownloadURLTask extends AsyncTask<String, Void, String> {
             Object resultObject = parser.parse(result.toString());
             JsonObject jsonObject = (JsonObject) resultObject;
             JsonArray array = (JsonArray) jsonObject.getAsJsonObject("responseData").getAsJsonArray("results");
-            //Om man vill välja vilket nummer av bilden, t.ex. nr1(0) lr nr2(1)
+
             JsonObject object = (JsonObject) array.get(Integer.parseInt(params[1]));
             result.delete(0, result.capacity());
             result.append(object.get("url").toString());
 
-        } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "Could not start download", e);
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "Could not start download", e);
-        }
-        finally
+        } catch (MalformedURLException e)
         {
-            if(reader != null) {
-                try {
+            Log.e(LOG_TAG, "Could not start download", e);
+        } catch (IOException e)
+        {
+            Log.e(LOG_TAG, "Could not start download", e);
+        } finally
+        {
+            if (reader != null)
+            {
+                try
+                {
                     reader.close();
-                } catch (IOException e) {
+                } catch (IOException e)
+                {
                     Log.e(LOG_TAG, "Could not close stream", e);
                 }
             }
@@ -70,7 +77,8 @@ public final class DownloadURLTask extends AsyncTask<String, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(String result)
+    {
         Picasso.with(button.getContext()).load(result).into(button);
     }
 }

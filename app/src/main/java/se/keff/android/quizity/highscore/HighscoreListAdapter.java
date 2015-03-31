@@ -21,7 +21,7 @@ public final class HighscoreListAdapter extends ArrayAdapter<HighscorePerson>
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        if(convertView == null)
+        if (convertView == null)
         {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_highscore, null);
         }
@@ -31,7 +31,7 @@ public final class HighscoreListAdapter extends ArrayAdapter<HighscorePerson>
 
         HighscorePerson person = getItem(position);
 
-        idText.setText(String.valueOf(position+1) + ". " + person.name);
+        idText.setText(String.valueOf(position + 1) + ". " + person.name);
         usernameText.setText(convertView.getResources().getString(R.string.hs_score) + person.score);
 
         return convertView;

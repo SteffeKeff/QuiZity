@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/gameplay"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/play_red"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:tag="@string/gamePlay"
-    android:weightSum="100">
+              android:id="@+id/gameplay"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/play_red"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:padding="10dp"
+              android:tag="@string/gamePlay"
+              android:weightSum="100">
 
     <LinearLayout
         android:id="@+id/infoTextLayout"
@@ -28,7 +28,7 @@
             android:layout_alignParentTop="true"
             android:layout_weight="1"
             android:text="@string/round"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <TextView
             android:id="@+id/score"
@@ -39,7 +39,7 @@
             android:layout_below="@+id/round"
             android:layout_weight="1"
             android:text="@string/score"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <TextView
             android:id="@+id/total_time"
@@ -50,7 +50,7 @@
             android:layout_below="@+id/score"
             android:layout_weight="1"
             android:text="@string/total_time"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
 
     </LinearLayout>
@@ -74,7 +74,6 @@
             android:textSize="45dp"
             android:typeface="serif"
             />
-        <!--android:text="@string/placeHolderCity"-->
 
         <Chronometer
             android:id="@+id/timer"
@@ -82,7 +81,7 @@
             android:layout_height="0dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <LinearLayout
@@ -105,7 +104,7 @@
             style="?android:borderlessButtonStyle"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:visibility="invisible" />
+            android:visibility="invisible"/>
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -117,7 +116,7 @@
             android:scaleType="fitXY"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:visibility="invisible" />
+            android:visibility="invisible"/>
 
     </LinearLayout>
 
@@ -144,7 +143,7 @@
             android:scaleType="fitXY"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:visibility="invisible" />
+            android:visibility="invisible"/>
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -156,7 +155,7 @@
             android:scaleType="fitXY"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:visibility="invisible" />
+            android:visibility="invisible"/>
 
     </LinearLayout>
 

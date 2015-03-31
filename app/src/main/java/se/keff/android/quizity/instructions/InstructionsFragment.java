@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 
 import se.keff.android.quizity.R;
 
-/**
- * Created by Steffe on 15-03-30.
- */
+
 public final class InstructionsFragment extends Fragment {
 
     @Override

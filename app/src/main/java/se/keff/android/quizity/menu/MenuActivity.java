@@ -2,16 +2,10 @@ package se.keff.android.quizity.menu;
 
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import se.keff.android.quizity.highscore.HighscoreActivity;
 import se.keff.android.quizity.R;
@@ -48,7 +42,6 @@ public final class MenuActivity extends ActionBarActivity
         menuMusic.pause();
     }
 
-
     public void playGame(View view)
     {
         menuMusic.setLooping(false);
@@ -67,6 +60,4 @@ public final class MenuActivity extends ActionBarActivity
         Intent intent = new Intent(this, InstructionsActivity.class);
         startActivity(intent);
     }
-
-
 }
