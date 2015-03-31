@@ -32,6 +32,8 @@ public final class HighscoreFragment extends Fragment {
     private final ValueComparator valueComparator = new ValueComparator(fetchedDataToHashMap);
     private final TreeMap<String, Integer> fetchedDataSortedInTreeMap = new TreeMap<String, Integer>(valueComparator);
 
+    SharedPreferences savedData;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,8 +43,9 @@ public final class HighscoreFragment extends Fragment {
 
             highscoreMusic = MediaPlayer.create(getActivity(), R.raw.jazz);
             highscoreMusic.start();
-            SharedPreferences names = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = names.edit();
+
+            savedData = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = savedData.edit();
             int totalScore = Game.score * 10 - Game.totalTime;
 
             editor.putInt(GameActivity.playerName, totalScore);
@@ -54,7 +57,7 @@ public final class HighscoreFragment extends Fragment {
             Game.totalTime = 0;
         }
 
-        SharedPreferences savedData = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
+        savedData = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
 
         Map<String, ?> fetchedData = savedData.getAll();
 
