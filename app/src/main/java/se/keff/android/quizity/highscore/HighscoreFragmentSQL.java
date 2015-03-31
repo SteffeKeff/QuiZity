@@ -39,22 +39,17 @@ public final class HighscoreFragmentSQL extends Fragment {
 
     private final HashMap<String, Integer> fetchedDataToHashMap = new HashMap<String, Integer>();
     private final ValueComparator valueComparator = new ValueComparator(fetchedDataToHashMap);
-    private final TreeMap<String, Integer> fetchedDataSortedInTreeMap = new TreeMap<String, Integer>(valueComparator);
-
-    SharedPreferences savedData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_highscore, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_highscore, container, false);
 
         if (!GameActivity.playerName.isEmpty()) {
 
             highscoreMusic = MediaPlayer.create(getActivity(), R.raw.jazz);
             highscoreMusic.start();
 
-//            savedData = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
-//            SharedPreferences.Editor editor = savedData.edit();
             int totalScore = Game.score * 10 - Game.totalTime;
 
             JsonObject json = new JsonObject();
@@ -67,49 +62,49 @@ public final class HighscoreFragmentSQL extends Fragment {
                     .setCallback(new FutureCallback<JsonArray>() {
                         @Override
                         public void onCompleted(Exception e, JsonArray result) {
-                            for(JsonElement element: result){
-                               JsonObject object = element.getAsJsonObject();
+                            for (int i = 0; i < result.size(); i++) {
+                                JsonObject object = result.get(i).getAsJsonObject();
+                                JsonElement name = object.get("name");
+                                String highScoreName = name.getAsString();
 
-                               JsonElement name = object.get("name");
-                               String highScoreName = name.getAsString();
+                                JsonElement score = object.get("score");
+                                String highScoreScore = score.getAsString();
+                                String paddedScore = padRight(highScoreScore, 8 - highScoreScore.length());
+                                HighscorePerson person = new HighscorePerson(highScoreName, paddedScore);
 
-                               JsonElement score = object.get("score");
-                               String highScoreScore = name.getAsString();
+                                highscorePersons.add(person);
                             }
+                            populateListView(rootView);
                         }
                     });
-
-            //editor.putInt(GameActivity.playerName, totalScore);
-
-            //editor.commit();
 
             GameActivity.playerName = "";
             Game.score = 0;
             Game.totalTime = 0;
+        } else {
+            Ion.with(getActivity())
+                    .load(sUrl)
+                    .asJsonArray()
+                    .setCallback(new FutureCallback<JsonArray>() {
+                        @Override
+                        public void onCompleted(Exception e, JsonArray result) {
+
+                            for (int i = 0; i < result.size(); i++) {
+                                JsonObject object = result.get(i).getAsJsonObject();
+                                JsonElement name = object.get("name");
+                                String highScoreName = name.getAsString();
+
+                                JsonElement score = object.get("score");
+                                String highScoreScore = score.getAsString();
+                                String paddedScore = padRight(highScoreScore, 8 - highScoreScore.length());
+                                HighscorePerson person = new HighscorePerson(highScoreName, paddedScore);
+
+                                highscorePersons.add(person);
+                            }
+                            populateListView(rootView);
+                        }
+                    });
         }
-
-        savedData = getActivity().getSharedPreferences("highscore", Context.MODE_PRIVATE);
-
-        Map<String, ?> fetchedData = savedData.getAll();
-
-        for (Map.Entry<String, ?> entry : fetchedData.entrySet()) {
-            fetchedDataToHashMap.put(entry.getKey(), Integer.parseInt(entry.getValue().toString()));
-        }
-
-        fetchedDataSortedInTreeMap.putAll(fetchedDataToHashMap);
-
-        for (Map.Entry<String, Integer> entry : fetchedDataSortedInTreeMap.entrySet()) {
-            String name = entry.getKey();
-            String score = entry.getValue().toString();
-            //padding på score för att få det lite snyggare
-            String paddedScore = padRight(score, 8-score.length());
-
-            highscorePersons.add(new HighscorePerson(name, paddedScore));
-            //presenterar top 15
-            if(highscorePersons.size() >= 15){break;}
-        }
-
-        populateListView(rootView);
 
         return rootView;
     }
