@@ -101,6 +101,7 @@ public final class Game {
     }
 
     private void endGame() {
+
         Intent intent = new Intent();
         intent.setClass(rootView.getContext(), HighscoreActivity.class);
         rootView.getContext().startActivity(intent);
@@ -138,7 +139,7 @@ public final class Game {
             displayCitiesIndexNumbers.remove(randomDisplayCity);
         }catch(ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
-            Toast.makeText(button.getContext(), "Babom!", Toast.LENGTH_SHORT).show();
+            Log.e("array", "error in load image");
         }
     }
 

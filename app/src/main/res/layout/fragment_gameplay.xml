@@ -95,20 +95,24 @@
 
         <ImageButton
             android:id="@+id/imageButton1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_vertical|left"
             android:layout_weight="1"
+            android:scaleType="fitXY"
+            style="?android:borderlessButtonStyle"
             android:cropToPadding="true"
             android:maxWidth="120dp"
             android:visibility="invisible" />
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_vertical|right"
             android:layout_weight="1"
+            style="?android:borderlessButtonStyle"
+            android:scaleType="fitXY"
             android:cropToPadding="true"
             android:maxWidth="120dp"
             android:visibility="invisible" />
@@ -130,20 +134,24 @@
 
         <ImageButton
             android:id="@+id/imageButton3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_vertical|left"
             android:layout_weight="1"
+            style="?android:borderlessButtonStyle"
+            android:scaleType="fitXY"
             android:cropToPadding="true"
             android:maxWidth="120dp"
             android:visibility="invisible" />
 
         <ImageButton
             android:id="@+id/imageButton4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_vertical|right"
+            style="?android:borderlessButtonStyle"
             android:layout_weight="1"
+            android:scaleType="fitXY"
             android:cropToPadding="true"
             android:maxWidth="120dp"
             android:visibility="invisible" />

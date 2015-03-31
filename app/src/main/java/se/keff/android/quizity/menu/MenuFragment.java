@@ -37,4 +37,5 @@ public final class MenuFragment extends Fragment {
 
         return rootView;
     }
+
 }

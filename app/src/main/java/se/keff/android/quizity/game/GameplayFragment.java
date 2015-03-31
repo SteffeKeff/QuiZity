@@ -17,11 +17,12 @@ public final class GameplayFragment extends Fragment {
 
     Game game;
     public static Chronometer timer;
-    public static ArrayList<ImageButton> buttons = new ArrayList<>();
+    public static ArrayList<ImageButton> buttons;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_gameplay, container, false);
+        buttons = new ArrayList<>();
         buttons.add((ImageButton) rootView.findViewById(R.id.imageButton1));
         buttons.add((ImageButton) rootView.findViewById(R.id.imageButton2));
         buttons.add((ImageButton) rootView.findViewById(R.id.imageButton3));
