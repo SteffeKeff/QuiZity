@@ -14,7 +14,7 @@ public final class HighscoreActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new HighscoreFragment())
+                    .add(R.id.container, new HighscoreFragmentSQL())
                     .commit();
         }
     }
