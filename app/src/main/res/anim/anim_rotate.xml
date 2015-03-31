@@ -10,8 +10,8 @@
     </translate>
     <translate  xmlns:android="http://schemas.android.com/apk/res/android"
                 android:startOffset="800"
-                android:fromXDelta="-100%p"
-                android:toXDelta="100%p"
+                android:fromXDelta="100%p"
+                android:toXDelta="+50%p"
                 android:duration="400" >
 
     </translate>
