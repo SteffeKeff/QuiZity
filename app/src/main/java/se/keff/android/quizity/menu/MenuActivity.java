@@ -26,7 +26,7 @@ public final class MenuActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
-        menuMusic = MediaPlayer.create(this, R.raw.quizity);
+        menuMusic = MediaPlayer.create(this, R.raw.quizityg);
         menuMusic.start();
         menuMusic.setLooping(true);
 
