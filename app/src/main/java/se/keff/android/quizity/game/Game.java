@@ -36,11 +36,6 @@ public final class Game {
     public Game(View rootView) {
         this.rootView = rootView;
 
-//        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton1));
-//        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton2));
-//        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton3));
-//        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton4));
-
         for(ImageButton button: GameplayFragment.buttons){
             button.setVisibility(View.INVISIBLE);
         }
@@ -58,7 +53,6 @@ public final class Game {
 
     public void getImages() {
 
-        Log.d("TAG", String.valueOf(displayCities.size()));
         try {
             for (ImageButton button : GameplayFragment.buttons) {
                 loadImage(button);
@@ -119,7 +113,6 @@ public final class Game {
         correctCity = displayCities.get(0);
 
         getImages();
-        //displayCityName.setText(correctCity);
 
         DelayTask delay = new DelayTask(displayCityName);
         delay.execute();
@@ -139,7 +132,6 @@ public final class Game {
             displayCitiesIndexNumbers.remove(randomDisplayCity);
         }catch(ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
-            Log.e("array", "error in load image");
         }
     }
 
