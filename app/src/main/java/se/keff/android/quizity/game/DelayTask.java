@@ -42,6 +42,7 @@ public final class DelayTask extends AsyncTask<Void, Integer, Integer>
         for (ImageButton button : GameplayFragment.buttons)
         {
             button.setVisibility(View.VISIBLE);
+            button.setClickable(true);
         }
         GameplayFragment.timer.setBase(SystemClock.elapsedRealtime());
         GameplayFragment.timer.start();

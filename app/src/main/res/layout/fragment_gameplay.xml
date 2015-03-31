@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/gameplay"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/play_red"
-              android:gravity="center"
-              android:orientation="vertical"
-              android:padding="10dp"
-              android:tag="@string/gamePlay"
-              android:weightSum="100">
+    android:id="@+id/gameplay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/play_red"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:tag="@string/gamePlay"
+    android:weightSum="100">
 
     <LinearLayout
         android:id="@+id/infoTextLayout"
@@ -28,7 +28,7 @@
             android:layout_alignParentTop="true"
             android:layout_weight="1"
             android:text="@string/round"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/score"
@@ -39,7 +39,7 @@
             android:layout_below="@+id/round"
             android:layout_weight="1"
             android:text="@string/score"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/total_time"
@@ -50,7 +50,7 @@
             android:layout_below="@+id/score"
             android:layout_weight="1"
             android:text="@string/total_time"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
     </LinearLayout>
@@ -67,13 +67,12 @@
             android:id="@+id/cityName"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:layout_weight="2"
+            android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="45dp"
-            android:typeface="serif"
-            />
+            android:typeface="serif" />
 
         <Chronometer
             android:id="@+id/timer"
@@ -81,7 +80,7 @@
             android:layout_height="0dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -96,27 +95,29 @@
 
         <ImageButton
             android:id="@+id/imageButton1"
+            style="?android:borderlessButtonStyle"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_vertical|left"
             android:layout_weight="1"
-            android:scaleType="fitXY"
-            style="?android:borderlessButtonStyle"
+            android:clickable="false"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:visibility="invisible"/>
+            android:scaleType="fitXY"
+            android:visibility="invisible" />
 
         <ImageButton
             android:id="@+id/imageButton2"
+            style="?android:borderlessButtonStyle"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_vertical|right"
             android:layout_weight="1"
-            style="?android:borderlessButtonStyle"
-            android:scaleType="fitXY"
+            android:clickable="false"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:visibility="invisible"/>
+            android:scaleType="fitXY"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
@@ -127,7 +128,6 @@
         android:layout_gravity="center"
         android:layout_weight="25"
         android:baselineAligned="false"
-        android:clickable="false"
         android:gravity="fill_horizontal"
         android:measureWithLargestChild="false"
         android:orientation="horizontal"
@@ -135,27 +135,29 @@
 
         <ImageButton
             android:id="@+id/imageButton3"
+            style="?android:borderlessButtonStyle"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_vertical|left"
             android:layout_weight="1"
-            style="?android:borderlessButtonStyle"
-            android:scaleType="fitXY"
+            android:clickable="false"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:visibility="invisible"/>
+            android:scaleType="fitXY"
+            android:visibility="invisible" />
 
         <ImageButton
             android:id="@+id/imageButton4"
+            style="?android:borderlessButtonStyle"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_vertical|right"
-            style="?android:borderlessButtonStyle"
             android:layout_weight="1"
-            android:scaleType="fitXY"
+            android:clickable="false"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:visibility="invisible"/>
+            android:scaleType="fitXY"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
