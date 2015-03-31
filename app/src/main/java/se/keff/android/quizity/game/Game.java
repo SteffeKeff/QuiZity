@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,7 +58,6 @@ public final class Game {
 
     public void getImages() {
 
-        //randomDisplayCity = (int) ((Math.random() * displayCities.size()));
         Log.d("TAG", String.valueOf(displayCities.size()));
         try {
             for (ImageButton button : GameplayFragment.buttons) {
@@ -75,7 +75,6 @@ public final class Game {
         MediaPlayer media = MediaPlayer.create(rootView.getContext(),R.raw.correct);
         MediaPlayer wrong = MediaPlayer.create(rootView.getContext(),R.raw.wrong);
         if (correctCity == buttonClicked.getTag()) {
-
 
             media.start();
             TextView displayScore = (TextView) rootView.findViewById(R.id.score);
@@ -118,7 +117,6 @@ public final class Game {
 
         correctCity = displayCities.get(0);
 
-
         getImages();
         //displayCityName.setText(correctCity);
 
@@ -126,19 +124,22 @@ public final class Game {
         delay.execute();
 
         displayRound.setText(displayRound.getResources().getString(R.string.round) + String.valueOf(round) + "/" + (cities_size / 4));
-
-
     }
 
     public void loadImage(ImageButton button) throws ExecutionException, InterruptedException {
-        Log.d("GAME.TAG.KEFF", String.valueOf(displayCities.size()));
-        randomDisplayCity = (int) ((Math.random() * displayCities.size()));
-        builder.append(displayCities.get(randomDisplayCity));
-        new DownloadURLTask(button).execute(builder.toString(), displayCitiesIndexNumbers.get(randomDisplayCity)).get();
-        button.setTag(displayCities.get(randomDisplayCity));
-        builder.replace(0, builder.capacity(), URL);
-        displayCities.remove(randomDisplayCity);
-        displayCitiesIndexNumbers.remove(randomDisplayCity);
+        try {
+            randomDisplayCity = (int) ((Math.random() * displayCities.size()));
+            builder.append(displayCities.get(randomDisplayCity));
+            new DownloadURLTask(button).execute(builder.toString(), displayCitiesIndexNumbers.get(randomDisplayCity)).get();
+            button.setTag(displayCities.get(randomDisplayCity));
+            builder.replace(0, builder.capacity(), URL);
+            builder = new StringBuilder(URL);
+            displayCities.remove(randomDisplayCity);
+            displayCitiesIndexNumbers.remove(randomDisplayCity);
+        }catch(ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
+            Toast.makeText(button.getContext(), "Babom!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void pickCity() {

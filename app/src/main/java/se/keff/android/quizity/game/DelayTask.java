@@ -23,7 +23,6 @@ public final class DelayTask extends AsyncTask<Void, Integer, Integer> {
             publishProgress(counter);
             counter++;
         }
-
         return counter;
     }
 

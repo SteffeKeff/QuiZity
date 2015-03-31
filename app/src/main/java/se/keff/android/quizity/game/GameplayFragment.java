@@ -22,10 +22,6 @@ public final class GameplayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_gameplay, container, false);
-
-        timer = (Chronometer) rootView.findViewById(R.id.timer);
-        game = new Game(rootView);
-
         buttons.add((ImageButton) rootView.findViewById(R.id.imageButton1));
         buttons.add((ImageButton) rootView.findViewById(R.id.imageButton2));
         buttons.add((ImageButton) rootView.findViewById(R.id.imageButton3));
@@ -35,6 +31,8 @@ public final class GameplayFragment extends Fragment {
         buttons.get(2).setOnClickListener(listener3);
         buttons.get(3).setOnClickListener(listener4);
 
+        timer = (Chronometer) rootView.findViewById(R.id.timer);
+        game = new Game(rootView);
         game.startRound();
         //timer.start();
 
@@ -54,7 +52,6 @@ public final class GameplayFragment extends Fragment {
                     + Integer.parseInt(array[1]) * 60 * 1000
                     + Integer.parseInt(array[2]) * 1000;
         }
-        //timer.setBase(SystemClock.elapsedRealtime());
         //timer.start();
         for(ImageButton button: buttons){
             button.setVisibility(View.INVISIBLE);
@@ -64,25 +61,25 @@ public final class GameplayFragment extends Fragment {
 
     View.OnClickListener listener1 = new View.OnClickListener() {
         public void onClick(View v) {
-            buttonClicked((ImageButton) v.findViewById(R.id.imageButton1));
+            buttonClicked(buttons.get(0));
         }
     };
 
     View.OnClickListener listener2 = new View.OnClickListener() {
         public void onClick(View v) {
-            buttonClicked((ImageButton) v.findViewById(R.id.imageButton2));
+            buttonClicked(buttons.get(1));
         }
     };
 
     View.OnClickListener listener3 = new View.OnClickListener() {
         public void onClick(View v) {
-            buttonClicked((ImageButton) v.findViewById(R.id.imageButton3));
+            buttonClicked(buttons.get(2));
         }
     };
 
     View.OnClickListener listener4 = new View.OnClickListener() {
         public void onClick(View v) {
-            buttonClicked((ImageButton) v.findViewById(R.id.imageButton4));
+            buttonClicked(buttons.get(3));
         }
     };
 
