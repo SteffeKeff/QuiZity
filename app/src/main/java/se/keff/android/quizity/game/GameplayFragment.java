@@ -9,30 +9,34 @@ import android.view.ViewGroup;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 import se.keff.android.quizity.R;
 
 public final class GameplayFragment extends Fragment {
 
     Game game;
-    Chronometer timer;
+    public static Chronometer timer;
+    public static ArrayList<ImageButton> buttons = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_gameplay, container, false);
 
+        timer = (Chronometer) rootView.findViewById(R.id.timer);
         game = new Game(rootView);
-        ImageButton button = (ImageButton) rootView.findViewById(R.id.imageButton1);
-        button.setOnClickListener(listener1);
-        button = (ImageButton) rootView.findViewById(R.id.imageButton2);
-        button.setOnClickListener(listener2);
-        button = (ImageButton) rootView.findViewById(R.id.imageButton3);
-        button.setOnClickListener(listener3);
-        button = (ImageButton) rootView.findViewById(R.id.imageButton4);
-        button.setOnClickListener(listener4);
+
+        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton1));
+        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton2));
+        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton3));
+        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton4));
+        buttons.get(0).setOnClickListener(listener1);
+        buttons.get(1).setOnClickListener(listener2);
+        buttons.get(2).setOnClickListener(listener3);
+        buttons.get(3).setOnClickListener(listener4);
 
         game.startRound();
-        timer = (Chronometer) rootView.findViewById(R.id.timer);
-        timer.start();
+        //timer.start();
 
         return rootView;
     }
@@ -50,9 +54,11 @@ public final class GameplayFragment extends Fragment {
                     + Integer.parseInt(array[1]) * 60 * 1000
                     + Integer.parseInt(array[2]) * 1000;
         }
-        timer.setBase(SystemClock.elapsedRealtime());
-        timer.start();
-
+        //timer.setBase(SystemClock.elapsedRealtime());
+        //timer.start();
+        for(ImageButton button: buttons){
+            button.setVisibility(View.INVISIBLE);
+        }
         game.nextRound(buttonId, stoppedMilliseconds);
     }
 

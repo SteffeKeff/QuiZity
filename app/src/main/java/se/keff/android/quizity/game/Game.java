@@ -2,6 +2,7 @@ package se.keff.android.quizity.game;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,12 +18,13 @@ public final class Game {
     private final View rootView;
     private static final String URL = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=";
     private StringBuilder builder = new StringBuilder(URL);
-    private final ArrayList<String> cities;
+    public static ArrayList<String> cities;
+    public static ArrayList<String> originalCities;
     private final ArrayList<String> citiesIndexNumbers;
     private final ArrayList<String> displayCities;
     private final ArrayList<String> displayCitiesIndexNumbers;
 
-    private String correctCity;
+    public static String correctCity;
     private int cities_size;
     private int round = 0;
     private int randomDisplayCity;
@@ -32,9 +34,20 @@ public final class Game {
 
     public Game(View rootView) {
         this.rootView = rootView;
+
+//        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton1));
+//        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton2));
+//        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton3));
+//        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton4));
+
+        for(ImageButton button: GameplayFragment.buttons){
+            button.setVisibility(View.INVISIBLE);
+        }
+
         String[] citiesArray = rootView.getResources().getStringArray(R.array.cities);
         String[] citiesImageNumbersArray = rootView.getResources().getStringArray(R.array.citiesImageNumber);
         cities = new ArrayList(Arrays.asList(citiesArray));
+        originalCities = (ArrayList<String>) cities.clone();
         citiesIndexNumbers = new ArrayList(Arrays.asList(citiesImageNumbersArray));
         displayCities = new ArrayList<>();
         displayCitiesIndexNumbers = new ArrayList<>();
@@ -43,15 +56,11 @@ public final class Game {
     }
 
     public void getImages() {
-        ArrayList<ImageButton> buttons = new ArrayList<>();
-        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton1));
-        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton2));
-        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton3));
-        buttons.add((ImageButton) rootView.findViewById(R.id.imageButton4));
 
-        randomDisplayCity = (int) ((Math.random() * displayCities.size()));
+        //randomDisplayCity = (int) ((Math.random() * displayCities.size()));
+        Log.d("TAG", String.valueOf(displayCities.size()));
         try {
-            for (ImageButton button : buttons) {
+            for (ImageButton button : GameplayFragment.buttons) {
                 loadImage(button);
             }
 
@@ -109,13 +118,20 @@ public final class Game {
 
         correctCity = displayCities.get(0);
 
-        displayCityName.setText(correctCity);
-        displayRound.setText(displayRound.getResources().getString(R.string.round) + String.valueOf(round) + "/" + (cities_size / 4));
 
         getImages();
+        //displayCityName.setText(correctCity);
+
+        DelayTask delay = new DelayTask(displayCityName);
+        delay.execute();
+
+        displayRound.setText(displayRound.getResources().getString(R.string.round) + String.valueOf(round) + "/" + (cities_size / 4));
+
+
     }
 
     public void loadImage(ImageButton button) throws ExecutionException, InterruptedException {
+        Log.d("GAME.TAG.KEFF", String.valueOf(displayCities.size()));
         randomDisplayCity = (int) ((Math.random() * displayCities.size()));
         builder.append(displayCities.get(randomDisplayCity));
         new DownloadURLTask(button).execute(builder.toString(), displayCitiesIndexNumbers.get(randomDisplayCity)).get();

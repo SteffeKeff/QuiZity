@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/gameplay"
-    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/play_red"
+    android:gravity="center"
     android:orientation="vertical"
-    android:weightSum="100"
+    android:padding="10dp"
     android:tag="@string/gamePlay"
-    android:gravity="center">
+    android:weightSum="100">
 
     <LinearLayout
+        android:id="@+id/infoTextLayout"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_gravity="left"
         android:layout_weight="30"
-        android:id="@+id/infoTextLayout"
         android:orientation="vertical"
-        android:weightSum="3"
-        android:layout_gravity="left">
+        android:weightSum="3">
 
         <TextView
             android:id="@+id/round"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_weight="1"
             android:text="@string/round"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -34,10 +34,10 @@
             android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/round"
+            android:layout_weight="1"
             android:text="@string/score"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -45,10 +45,10 @@
             android:id="@+id/total_time"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/score"
+            android:layout_weight="1"
             android:text="@string/total_time"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -67,52 +67,50 @@
             android:id="@+id/cityName"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="2"
-            android:text="@string/placeHolderCity"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="45dp"
-            android:typeface="serif"
-            android:layout_gravity="center_horizontal" />
+            android:typeface="serif" />
+        <!--android:text="@string/placeHolderCity"-->
 
         <Chronometer
             android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutUpperImages"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="25"
-        android:orientation="horizontal"
-        android:weightSum="2"
         android:layout_gravity="center"
-        android:gravity="fill_horizontal">
+        android:layout_weight="25"
+        android:gravity="fill_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <ImageButton
             android:id="@+id/imageButton1"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|left"
             android:layout_weight="1"
             android:cropToPadding="true"
             android:maxWidth="120dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/london"
-            android:layout_gravity="center_vertical|left"
             android:visibility="invisible" />
 
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:maxWidth="120dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/london"
-            android:cropToPadding="true"
             android:layout_gravity="center_vertical|right"
+            android:layout_weight="1"
+            android:cropToPadding="true"
+            android:maxWidth="120dp"
             android:visibility="invisible" />
 
     </LinearLayout>
@@ -121,36 +119,33 @@
         android:id="@+id/linearLayoutBottomImages"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="25"
-        android:orientation="horizontal"
-        android:weightSum="2"
         android:layout_gravity="center"
-        android:gravity="fill_horizontal"
+        android:layout_weight="25"
         android:baselineAligned="false"
         android:clickable="false"
+        android:gravity="fill_horizontal"
         android:measureWithLargestChild="false"
-        android:visibility="visible">
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:maxWidth="120dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/london"
-            android:cropToPadding="true"
             android:layout_gravity="center_vertical|left"
+            android:layout_weight="1"
+            android:cropToPadding="true"
+            android:maxWidth="120dp"
             android:visibility="invisible" />
 
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:maxWidth="120dp"
             android:layout_height="wrap_content"
-            android:cropToPadding="true"
-            android:src="@drawable/london"
             android:layout_gravity="center_vertical|right"
+            android:layout_weight="1"
+            android:cropToPadding="true"
+            android:maxWidth="120dp"
             android:visibility="invisible" />
 
     </LinearLayout>
