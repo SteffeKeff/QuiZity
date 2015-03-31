@@ -1,142 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/gameplay"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/play_red"
-    android:tag="@string/gamePlay">
-
-    <TextView
-        android:id="@+id/cityName"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:text="@string/placeHolderCity"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="45dp"
-        android:typeface="serif"/>
-<LinearLayout
-    android:layout_above="@+id/linearLayout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentEnd="true"
-    android:id="@+id/linearLayout2"
-    >
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:maxHeight="100dp"
-        android:maxWidth="200dp"
-        android:src="@drawable/frame"
-        android:background="@color/play_imagebutton_background_yellow"
-        android:scaleType="fitXY"
-        android:layout_below="@+id/timer"/>
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:layout_weight="1"
-        android:maxHeight="100dp"
-        android:maxWidth="200dp"
-        android:src="@drawable/frame"
-        android:background="@color/play_imagebutton_background_yellow"
-        android:onClick="buttonAnswer"
-        android:scaleType="fitXY"
-        android:layout_alignTop="@+id/imageButton1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
-</LinearLayout>
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:tag="@string/gamePlay"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/linearLayout"
-        >
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageButton1"
-        android:adjustViewBounds="true"
-        android:src="@drawable/frame"
-        android:background="@color/play_imagebutton_background_yellow"
-        android:maxHeight="100dp"
-        android:maxWidth="200dp"
-        android:onClick="buttonAnswer"
-        android:scaleType="fitXY"
-        android:layout_weight="1"
-        />
+        android:layout_height="0dp"
+        android:layout_weight="30"
+        android:id="@+id/infoTextLayout"
+        android:orientation="vertical"
+        android:weightSum="3"
+        android:layout_gravity="left">
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:adjustViewBounds="true"
-        android:maxHeight="100dp"
-        android:maxWidth="200dp"
-        android:src="@drawable/frame"
-        android:background="@color/play_imagebutton_background_yellow"
-        android:onClick="buttonAnswer"
-        android:scaleType="fitXY"
-        android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/round"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/round"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/round"
+            android:text="@string/score"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/total_time"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/score"
+            android:text="@string/total_time"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
     </LinearLayout>
 
-
-    <Chronometer
-        android:id="@+id/timer"
+    <LinearLayout
+        android:id="@+id/cityNameLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/cityName"
-        android:layout_centerHorizontal="true"/>
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:orientation="vertical"
+        android:weightSum="3">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/round"
-        android:id="@+id/round"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:text="@string/placeHolderCity"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="45dp"
+            android:typeface="serif"
+            android:layout_gravity="center_horizontal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/score"
-        android:id="@+id/score"
-        android:layout_below="@+id/round"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        <Chronometer
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/total_time"
-        android:id="@+id/total_time"
-        android:layout_below="@+id/score"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+    <LinearLayout
+        android:id="@+id/linearLayoutUpperImages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_gravity="center"
+        android:gravity="fill_horizontal">
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:cropToPadding="true"
+            android:maxWidth="120dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/london"
+            android:layout_gravity="center_vertical|left"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:maxWidth="120dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/london"
+            android:cropToPadding="true"
+            android:layout_gravity="center_vertical|right"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBottomImages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_gravity="center"
+        android:gravity="fill_horizontal"
+        android:baselineAligned="false"
+        android:clickable="false"
+        android:measureWithLargestChild="false"
+        android:visibility="visible">
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:maxWidth="120dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/london"
+            android:cropToPadding="true"
+            android:layout_gravity="center_vertical|left"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:maxWidth="120dp"
+            android:layout_height="wrap_content"
+            android:cropToPadding="true"
+            android:src="@drawable/london"
+            android:layout_gravity="center_vertical|right"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+</LinearLayout>
