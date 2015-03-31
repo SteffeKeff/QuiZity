@@ -15,9 +15,6 @@ import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
 
 import se.keff.android.quizity.R;
 import se.keff.android.quizity.game.Game;
@@ -29,8 +26,6 @@ public final class HighscoreFragmentSQL extends Fragment
     private final static String sUrl = "http://83.251.232.254/HighscoreServer/highscore";
     private final ArrayList<HighscorePerson> highscorePersons = new ArrayList<>();
     private MediaPlayer highscoreMusic;
-    private final HashMap<String, Integer> fetchedDataToHashMap = new HashMap<String, Integer>();
-    private final ValueComparator valueComparator = new ValueComparator(fetchedDataToHashMap);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -111,28 +106,5 @@ public final class HighscoreFragmentSQL extends Fragment
     public static String padRight(String s, int n)
     {
         return String.format("%1$-" + n + "s", s);
-    }
-}
-
-final class ValueComparator implements Comparator<String>
-{
-
-    Map<String, Integer> base;
-
-    public ValueComparator(Map<String, Integer> base)
-    {
-        this.base = base;
-    }
-
-    // Note: this comparator imposes orderings that are inconsistent with equals.
-    public int compare(String a, String b)
-    {
-        if (base.get(a) >= base.get(b))
-        {
-            return -1;
-        } else
-        {
-            return 1;
-        } // returning 0 would merge keys
     }
 }
