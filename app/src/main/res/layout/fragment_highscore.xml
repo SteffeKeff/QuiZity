@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/highscore_layout"
-    android:background="#FFBB33">
+    android:background="@color/highscore_yellow">
 
 
     <TextView
@@ -16,10 +16,10 @@
         android:textSize="50dp"
         android:typeface="serif"
         android:layout_alignParentTop="true"
-        android:background="#FFBB33"
+        android:background="@color/highscore_yellow"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="125dp"
-        android:textColor="#ffffffff"
+        android:textColor="@color/white"
         />
 
     <ListView
@@ -32,7 +32,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="#FFBB33"
+        android:background="@color/highscore_yellow"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:listSelector="@android:color/transparent"

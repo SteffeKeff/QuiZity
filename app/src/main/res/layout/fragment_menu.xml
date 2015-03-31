@@ -2,7 +2,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#ff569fcc"
+              android:background="@color/standard_blue"
               android:orientation="vertical"
               android:weightSum="3"
               tools:context=".MenuActivity$MenuFragment">
@@ -13,9 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#AA66CC">
+        android:background="@color/instructions_purple">
 
         <TextView
+            android:textColor="@color/standard_black"
             android:id="@+id/buttonInstructions"
             android:text="@string/fa_book"
             android:textSize="35dp"
@@ -27,6 +28,7 @@
             android:layout_gravity="center_vertical" />
         <TextView
             android:text="@string/howTo"
+            android:textColor="@color/standard_black"
             android:textSize="35dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -34,6 +36,7 @@
             android:layout_gravity="center"
             android:layout_weight="0.6" />
         <TextView
+            android:textColor="@color/standard_black"
             android:id="@+id/arrow1"
             android:text="@string/fa_angle_right"
             android:textSize="35dp"
@@ -51,12 +54,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#FFBB33">
+        android:background="@color/highscore_yellow">
 
         <TextView
             android:id="@+id/buttonHighscore"
             android:text="@string/fa_list"
             android:textSize="35dp"
+            android:textColor="@color/standard_black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".25"
@@ -67,6 +71,7 @@
         <TextView
             android:text="@string/highscore"
             android:textSize="35dp"
+            android:textColor="@color/standard_black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
@@ -77,6 +82,7 @@
             android:text="@string/fa_angle_right"
             android:textSize="35dp"
             android:layout_width="0dp"
+            android:textColor="@color/standard_black"
             android:layout_height="wrap_content"
             android:layout_weight=".15"
             android:gravity="center_vertical|right"
@@ -90,12 +96,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#FF4444">
+        android:background="@color/play_red">
 
         <TextView
             android:id="@+id/buttonPlay"
             android:text="@string/fa_game"
             android:textSize="35dp"
+            android:textColor="@color/standard_black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".25"
@@ -106,6 +113,7 @@
             android:text="@string/play"
             android:textSize="35dp"
             android:layout_width="0dp"
+            android:textColor="@color/standard_black"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
             android:gravity="center"
@@ -114,6 +122,7 @@
             android:id="@+id/arrow3"
             android:text="@string/fa_angle_right"
             android:textSize="35dp"
+            android:textColor="@color/standard_black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".15"
@@ -124,42 +133,3 @@
 
 
 </LinearLayout>
-
-
-    <!--
-<Button
-        android:id="@+id/buttonInstructions"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#AA66CC"
-        android:onClick="showInstructions"
-        android:text="@string/fa_book"
-        android:textColor="#ffffff"
-        android:textSize="40dp"
-        />
-
-    <Button
-        android:id="@+id/buttonHighscore"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#FFBB33"
-        android:onClick="showHighscore"
-        android:text="@string/fa_list"
-        android:textColor="#ffffff"
-        android:textSize="40dp"
-        />
-
-    <Button
-        android:id="@+id/buttonPlay"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#FF4444"
-        android:onClick="playGame"
-        android:text="@string/fa_game"
-        android:textColor="#ffffff"
-        android:textSize="40dp"
-        />
-    -->

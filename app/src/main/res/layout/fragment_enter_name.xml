@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:id="@+id/enterNameFragment"
     android:clickable="false"
-    android:background="#FF4444">
+    android:background="@color/play_red">
 
 
     <EditText
@@ -20,7 +20,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#E53D3D"
+        android:background="@color/enter_name_text_red"
         android:gravity="center"
         />
 
@@ -36,9 +36,9 @@
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true"
-        android:background="#7F2222"
+        android:background="@color/enter_name_button_red"
         android:textStyle="bold"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/white"/>
 
     <ImageView
         android:layout_width="100dp"

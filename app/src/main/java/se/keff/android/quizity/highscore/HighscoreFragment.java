@@ -65,6 +65,7 @@ public final class HighscoreFragment extends Fragment {
 
         for (Map.Entry<String, Integer> entry : fetchedDataSortedInTreeMap.entrySet()) {
             highscore.add(getResources().getString(R.string.hs_name) + " " + entry.getKey() + "    |    " +getResources().getString(R.string.hs_score) + " " + entry.getValue().toString());
+            //presenterar top 15
             if(highscore.size() >= 15){break;}
         }
 
@@ -76,7 +77,7 @@ public final class HighscoreFragment extends Fragment {
     public void populateListView(View rootView) {
         highscoreListView = (ListView) rootView.findViewById(R.id.highscoreList);
 
-        ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.simple_list_max, highscore);
+        ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.simple_list_custom, highscore);
 
         highscoreListView.setAdapter(objAdapter);
     }

@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF4444"
+    android:background="@color/play_red"
     android:tag="@string/gamePlay">
 
     <TextView
@@ -37,7 +37,7 @@
         android:maxHeight="100dp"
         android:maxWidth="200dp"
         android:src="@drawable/frame"
-        android:background="#FFBB33"
+        android:background="@color/play_imagebutton_background_yellow"
         android:scaleType="fitXY"
         android:layout_below="@+id/timer"/>
 
@@ -50,7 +50,7 @@
         android:maxHeight="100dp"
         android:maxWidth="200dp"
         android:src="@drawable/frame"
-        android:background="#FFBB33"
+        android:background="@color/play_imagebutton_background_yellow"
         android:onClick="buttonAnswer"
         android:scaleType="fitXY"
         android:layout_alignTop="@+id/imageButton1"
@@ -77,7 +77,7 @@
         android:layout_below="@+id/imageButton1"
         android:adjustViewBounds="true"
         android:src="@drawable/frame"
-        android:background="#FFBB33"
+        android:background="@color/play_imagebutton_background_yellow"
         android:maxHeight="100dp"
         android:maxWidth="200dp"
         android:onClick="buttonAnswer"
@@ -95,7 +95,7 @@
         android:maxHeight="100dp"
         android:maxWidth="200dp"
         android:src="@drawable/frame"
-        android:background="#FFBB33"
+        android:background="@color/play_imagebutton_background_yellow"
         android:onClick="buttonAnswer"
         android:scaleType="fitXY"
         android:layout_weight="1"/>
