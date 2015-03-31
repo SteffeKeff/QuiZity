@@ -24,12 +24,13 @@ import se.keff.android.quizity.game.GameActivity;
 public final class HighscoreFragment extends Fragment {
 
     private ListView highscoreListView;
-    ArrayList<String> highscore = new ArrayList<>();
+
+    private final ArrayList<HighscorePerson> highscorePersons = new ArrayList<>();
     private MediaPlayer highscoreMusic;
 
-    HashMap<String, Integer> fetchedDataToHashMap = new HashMap<String, Integer>();
-    ValueComparator valueComparator = new ValueComparator(fetchedDataToHashMap);
-    TreeMap<String, Integer> fetchedDataSortedInTreeMap = new TreeMap<String, Integer>(valueComparator);
+    private final HashMap<String, Integer> fetchedDataToHashMap = new HashMap<String, Integer>();
+    private final ValueComparator valueComparator = new ValueComparator(fetchedDataToHashMap);
+    private final TreeMap<String, Integer> fetchedDataSortedInTreeMap = new TreeMap<String, Integer>(valueComparator);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,9 +65,14 @@ public final class HighscoreFragment extends Fragment {
         fetchedDataSortedInTreeMap.putAll(fetchedDataToHashMap);
 
         for (Map.Entry<String, Integer> entry : fetchedDataSortedInTreeMap.entrySet()) {
-            highscore.add(getResources().getString(R.string.hs_name) + " " + entry.getKey() + "    |    " +getResources().getString(R.string.hs_score) + " " + entry.getValue().toString());
+            String name = entry.getKey();
+            String score = entry.getValue().toString();
+            //padding på score för att få det lite snyggare
+            String paddedScore = padRight(score, 8-score.length());
+
+            highscorePersons.add(new HighscorePerson(name, paddedScore));
             //presenterar top 15
-            if(highscore.size() >= 15){break;}
+            if(highscorePersons.size() >= 15){break;}
         }
 
         populateListView(rootView);
@@ -77,10 +83,15 @@ public final class HighscoreFragment extends Fragment {
     public void populateListView(View rootView) {
         highscoreListView = (ListView) rootView.findViewById(R.id.highscoreList);
 
-        ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.simple_list_custom, highscore);
+        HighscoreListAdapter adapter = new HighscoreListAdapter(getActivity(), highscorePersons);
 
-        highscoreListView.setAdapter(objAdapter);
+        highscoreListView.setAdapter(adapter);
     }
+
+    public static String padRight(String s, int n) {
+        return String.format("%1$-" + n + "s", s);
+    }
+
 }
 
 final class ValueComparator implements Comparator<String> {

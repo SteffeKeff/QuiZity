@@ -11,7 +11,6 @@
     <string name="howTo">Instructions</string>
 
     <string name="enterName">Name</string>
-    <!--<string name="start">Start</string>-->
     <string name="startGame">Start game</string>
     <string name="errorNoName">Please enter your name</string>
 
@@ -22,7 +21,7 @@
     <string name="total_time">Total time: 0</string>
 
     <string name="hs_name">Name: </string>
-    <string name="hs_score">Score: </string>
+    <string name="hs_score">score: </string>
     <string name="instructions">A random cityname will show up.\nClick on the correct image as fast as possible.</string>
 
 

@@ -13,6 +13,6 @@
     <string name="total_time">Total tid: 0</string>
     <string name="action_settings">Inställningar</string>
     <string name="hs_name">Namn: </string>
-    <string name="hs_score">, poäng: </string>
+    <string name="hs_score">poäng: </string>
     <string name="instructions">Ett slumpmässigt stadsnamn kommer att dyka upp. Klicka på rätt bild så fort som möjligt.</string>
 </resources>
